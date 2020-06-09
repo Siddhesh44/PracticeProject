@@ -64,6 +64,7 @@ extension TableInCellVC: UITableViewDelegate,UITableViewDataSource{
         return 600
     }
     
+    
 }
 
 
