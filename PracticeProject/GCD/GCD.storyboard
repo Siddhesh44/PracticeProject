@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VP6-j5-ohf">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--ExampleVC-->
+        <scene sceneID="hlJ-Z9-wFu">
+            <objects>
+                <viewController storyboardIdentifier="GCDExampleVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Sx3-BM-UAd" customClass="GCDExampleVC" customModule="PracticeProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3ji-Tc-1Tp">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BackGround Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="niF-sF-5ON">
+                                <rect key="frame" x="57" y="123" width="300" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" image="AnimeX_778965" translatesAutoresizingMaskIntoConstraints="NO" id="Sri-0q-Lcb">
+                                <rect key="frame" x="57" y="247" width="300" height="300"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="niF-sF-5ON" firstAttribute="top" secondItem="VqD-q8-Pfn" secondAttribute="top" constant="79" id="0eX-kT-qY3"/>
+                            <constraint firstItem="Sri-0q-Lcb" firstAttribute="top" secondItem="niF-sF-5ON" secondAttribute="bottom" constant="94" id="JUs-nC-QJY"/>
+                            <constraint firstItem="VqD-q8-Pfn" firstAttribute="trailing" secondItem="niF-sF-5ON" secondAttribute="trailing" constant="57" id="TdN-SS-ehf"/>
+                            <constraint firstItem="Sri-0q-Lcb" firstAttribute="leading" secondItem="VqD-q8-Pfn" secondAttribute="leading" constant="57" id="gYE-BK-pDx"/>
+                            <constraint firstItem="niF-sF-5ON" firstAttribute="leading" secondItem="VqD-q8-Pfn" secondAttribute="leading" constant="57" id="h0O-vJ-FoZ"/>
+                            <constraint firstItem="VqD-q8-Pfn" firstAttribute="bottom" secondItem="Sri-0q-Lcb" secondAttribute="bottom" constant="315" id="lk0-bh-dht"/>
+                            <constraint firstItem="VqD-q8-Pfn" firstAttribute="trailing" secondItem="Sri-0q-Lcb" secondAttribute="trailing" constant="57" id="xXF-Za-g0q"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VqD-q8-Pfn"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="Sri-0q-Lcb" id="c2c-Qg-WEd"/>
+                        <outlet property="lbl" destination="niF-sF-5ON" id="DB3-O0-p2m"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AB3-EQ-Z1O" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="139" y="127"/>
+        </scene>
+        <!--SemaphoreVC-->
+        <scene sceneID="sqv-01-xhX">
+            <objects>
+                <viewController storyboardIdentifier="SemaphoreVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VP6-j5-ohf" customClass="SemaphoreVC" customModule="PracticeProject" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="p1b-OF-JPi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="gT6-3j-jao"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7sK-Lx-AZf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1000" y="127"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="AnimeX_778965" width="960" height="540"/>
+    </resources>
+</document>
