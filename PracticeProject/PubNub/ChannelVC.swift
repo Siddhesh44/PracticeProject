@@ -39,41 +39,7 @@ class ChannelVC: UIViewController{
         //Making each connection identifiable for future development
         config.uuid = UUID().uuidString
         client = PubNub(configuration: config)
-        
-        client.add(channels: ["Group1", "Friend1"],to: "Sid") { result in
-                 switch result {
-                 case let .success(response):
-                     print("################")
-                     print("Successful Add Channels Sid: \(response)")
-                 case let .failure(error):
-                     print("###############")
-                     print("Failed Add Channels to Sid: \(error.localizedDescription)")
-                 }
-             }
 
-             client.add(channels: ["Group1", "Friend2"],to: "Siddhesh") { result in
-                 switch result {
-                 case let .success(response):
-                     print("#################")
-                     print("Successful Add Channels To Siddhesh: \(response)")
-                 case let .failure(error):
-                     print("###############")
-                     print("Failed Add Channels To Siddhesh: \(error.localizedDescription)")
-                 }
-             }
-        
-        client.listChannels(for: "Siddhesh") { result in
-            switch result {
-            case let .success(response):
-                print("###############")
-                print("Successful List of Channels in Group Response: \(response)")
-            case let .failure(error):
-                print("###############")
-                print("Failed Add Channels Response: \(error.localizedDescription)")
-            }
-        }
-
-        
         // Add listener event callbacks
         listener.didReceiveSubscription = { event in
             switch event {
