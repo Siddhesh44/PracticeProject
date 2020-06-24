@@ -14,6 +14,12 @@
 		F602FE13248CEFFD00E2167E /* GCDExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602FE12248CEFFC00E2167E /* GCDExampleVC.swift */; };
 		F602FE15248D3F5F00E2167E /* WorkItemandGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602FE14248D3F5F00E2167E /* WorkItemandGroupVC.swift */; };
 		F602FE17248E0CF200E2167E /* SemaphoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602FE16248E0CF200E2167E /* SemaphoreVC.swift */; };
+		F6AE090824923A35005B47D5 /* PubNubStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6AE090724923A35005B47D5 /* PubNubStory.storyboard */; };
+		F6AE090B24923A7C005B47D5 /* PubNubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AE090A24923A7C005B47D5 /* PubNubVC.swift */; };
+		F6BC00A12490A23800A0DBBC /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BC00A02490A23800A0DBBC /* Activity.storyboard */; };
+		F6BC00A42490A28500A0DBBC /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BC00A32490A28500A0DBBC /* ActivityViewController.swift */; };
+		F6BC00A62490E5F900A0DBBC /* customActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BC00A52490E5F900A0DBBC /* customActivityController.swift */; };
+		F6BC00AA2491030200A0DBBC /* ActivityViewCustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BC00A92491030200A0DBBC /* ActivityViewCustomActivity.swift */; };
 		F6C55296248A60E70022CCE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C55295248A60E70022CCE5 /* AppDelegate.swift */; };
 		F6C5529A248A60E70022CCE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C55299248A60E70022CCE5 /* ViewController.swift */; };
 		F6C5529D248A60E70022CCE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C5529B248A60E70022CCE5 /* Main.storyboard */; };
@@ -26,6 +32,10 @@
 		F6C552B4248A7A680022CCE5 /* TableInCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C552B3248A7A680022CCE5 /* TableInCellVC.swift */; };
 		F6C552B6248A7E170022CCE5 /* OuterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C552B5248A7E170022CCE5 /* OuterTableCell.swift */; };
 		F6C552B8248A7E270022CCE5 /* InnerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C552B7248A7E270022CCE5 /* InnerTableCell.swift */; };
+		F6ED593C24934FA100AA57B8 /* PubNubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED593B24934FA100AA57B8 /* PubNubViewController.swift */; };
+		F6ED593E2493618400AA57B8 /* SimpleChatAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED593D2493618400AA57B8 /* SimpleChatAppVC.swift */; };
+		F6ED59402493637000AA57B8 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED593F2493637000AA57B8 /* ChannelVC.swift */; };
+		F6ED59422493650E00AA57B8 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED59412493650E00AA57B8 /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +48,12 @@
 		F602FE12248CEFFC00E2167E /* GCDExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDExampleVC.swift; sourceTree = "<group>"; };
 		F602FE14248D3F5F00E2167E /* WorkItemandGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkItemandGroupVC.swift; sourceTree = "<group>"; };
 		F602FE16248E0CF200E2167E /* SemaphoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemaphoreVC.swift; sourceTree = "<group>"; };
+		F6AE090724923A35005B47D5 /* PubNubStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PubNubStory.storyboard; sourceTree = "<group>"; };
+		F6AE090A24923A7C005B47D5 /* PubNubVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubNubVC.swift; sourceTree = "<group>"; };
+		F6BC00A02490A23800A0DBBC /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
+		F6BC00A32490A28500A0DBBC /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
+		F6BC00A52490E5F900A0DBBC /* customActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customActivityController.swift; sourceTree = "<group>"; };
+		F6BC00A92491030200A0DBBC /* ActivityViewCustomActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCustomActivity.swift; sourceTree = "<group>"; };
 		F6C55292248A60E70022CCE5 /* PracticeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C55295248A60E70022CCE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C55299248A60E70022CCE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -52,6 +68,10 @@
 		F6C552B3248A7A680022CCE5 /* TableInCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableInCellVC.swift; sourceTree = "<group>"; };
 		F6C552B5248A7E170022CCE5 /* OuterTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterTableCell.swift; sourceTree = "<group>"; };
 		F6C552B7248A7E270022CCE5 /* InnerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerTableCell.swift; sourceTree = "<group>"; };
+		F6ED593B24934FA100AA57B8 /* PubNubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubNubViewController.swift; sourceTree = "<group>"; };
+		F6ED593D2493618400AA57B8 /* SimpleChatAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleChatAppVC.swift; sourceTree = "<group>"; };
+		F6ED593F2493637000AA57B8 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
+		F6ED59412493650E00AA57B8 /* MessageCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +115,30 @@
 			path = GCD;
 			sourceTree = "<group>";
 		};
+		F6AE090924923A51005B47D5 /* PubNub */ = {
+			isa = PBXGroup;
+			children = (
+				F6AE090724923A35005B47D5 /* PubNubStory.storyboard */,
+				F6ED59412493650E00AA57B8 /* MessageCell.swift */,
+				F6ED593F2493637000AA57B8 /* ChannelVC.swift */,
+				F6ED593D2493618400AA57B8 /* SimpleChatAppVC.swift */,
+				F6ED593B24934FA100AA57B8 /* PubNubViewController.swift */,
+				F6AE090A24923A7C005B47D5 /* PubNubVC.swift */,
+			);
+			path = PubNub;
+			sourceTree = "<group>";
+		};
+		F6BC00A22490A23E00A0DBBC /* Activity */ = {
+			isa = PBXGroup;
+			children = (
+				F6BC00A02490A23800A0DBBC /* Activity.storyboard */,
+				F6BC00A52490E5F900A0DBBC /* customActivityController.swift */,
+				F6BC00A32490A28500A0DBBC /* ActivityViewController.swift */,
+				F6BC00A92491030200A0DBBC /* ActivityViewCustomActivity.swift */,
+			);
+			path = Activity;
+			sourceTree = "<group>";
+		};
 		F6C55289248A60E70022CCE5 = {
 			isa = PBXGroup;
 			children = (
@@ -124,8 +168,10 @@
 				F6C552A3248A60EE0022CCE5 /* LaunchScreen.storyboard */,
 				F6C552A6248A60EE0022CCE5 /* Info.plist */,
 				F6C5529E248A60E70022CCE5 /* PracticeProject.xcdatamodeld */,
+				F6AE090924923A51005B47D5 /* PubNub */,
 				F6C552AE248A615A0022CCE5 /* TableView */,
 				F602FE0F248B9CC300E2167E /* GCD */,
+				F6BC00A22490A23E00A0DBBC /* Activity */,
 			);
 			path = PracticeProject;
 			sourceTree = "<group>";
@@ -204,7 +250,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6C552A5248A60EE0022CCE5 /* LaunchScreen.storyboard in Resources */,
+				F6BC00A12490A23800A0DBBC /* Activity.storyboard in Resources */,
 				F602FE0E248B9CBD00E2167E /* GCD.storyboard in Resources */,
+				F6AE090824923A35005B47D5 /* PubNubStory.storyboard in Resources */,
 				F6C552A2248A60EE0022CCE5 /* Assets.xcassets in Resources */,
 				F6C552AD248A611D0022CCE5 /* TableView.storyboard in Resources */,
 				F6C5529D248A60E70022CCE5 /* Main.storyboard in Resources */,
@@ -260,19 +308,27 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6BC00A62490E5F900A0DBBC /* customActivityController.swift in Sources */,
 				F6C552B6248A7E170022CCE5 /* OuterTableCell.swift in Sources */,
 				F602FE11248B9CE600E2167E /* GCDViewController.swift in Sources */,
 				F602FE13248CEFFD00E2167E /* GCDExampleVC.swift in Sources */,
+				F6ED59402493637000AA57B8 /* ChannelVC.swift in Sources */,
 				F6C552B2248A66520022CCE5 /* SceneDelegate.swift in Sources */,
+				F6AE090B24923A7C005B47D5 /* PubNubVC.swift in Sources */,
 				F6C5529A248A60E70022CCE5 /* ViewController.swift in Sources */,
+				F6BC00AA2491030200A0DBBC /* ActivityViewCustomActivity.swift in Sources */,
 				F602FE0C248B674B00E2167E /* TableData.swift in Sources */,
 				F6C552B8248A7E270022CCE5 /* InnerTableCell.swift in Sources */,
 				F6C55296248A60E70022CCE5 /* AppDelegate.swift in Sources */,
+				F6ED593E2493618400AA57B8 /* SimpleChatAppVC.swift in Sources */,
 				F6C552A0248A60E70022CCE5 /* PracticeProject.xcdatamodeld in Sources */,
 				F602FE17248E0CF200E2167E /* SemaphoreVC.swift in Sources */,
 				F6C552B4248A7A680022CCE5 /* TableInCellVC.swift in Sources */,
+				F6BC00A42490A28500A0DBBC /* ActivityViewController.swift in Sources */,
 				F602FE15248D3F5F00E2167E /* WorkItemandGroupVC.swift in Sources */,
+				F6ED593C24934FA100AA57B8 /* PubNubViewController.swift in Sources */,
 				F6C552B0248A61770022CCE5 /* TableViewVC.swift in Sources */,
+				F6ED59422493650E00AA57B8 /* MessageCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
