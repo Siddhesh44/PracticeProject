@@ -47,36 +47,21 @@ class RunningVC: UIViewController {
         authorizeHealthKit()
         checkLocationServices()
         
-        switch CMAltimeter.authorizationStatus() {
-        case .notDetermined:
-            print("notDetermined")
-        case .restricted:
-            print("restricted")
-        case .denied:
-            print("denied")
-        case .authorized:
-            print("authorized")
-        @unknown default:
-            break
-        }
-        
-        if CMAltimeter.isRelativeAltitudeAvailable(){
-            print("RelativeAltitudeAvailable")
-            altimeter.startRelativeAltitudeUpdates(to: .main) { (data, error) in
-                if error != nil { print("Error in getting data",error) } else{
-                    print("Altitude Change",data?.relativeAltitude.stringValue)
-                }
-            }
-        }else{
-            print("RelativeAltitudeUnavailable")
-        }
-        
         print("current location",locationManager.location?.coordinate)
         startingLocation = locationManager.location
     }
     
     override func viewDidAppear(_ animated: Bool) {
         createTimer()
+    }
+    
+    func altimeterSetUp(){
+        altimeter.startRelativeAltitudeUpdates(to: .main) { (data, error) in
+            if error != nil { print("Error in getting data",error!) } else{
+                print("Altitude Change",data?.relativeAltitude.stringValue)
+            }
+        }
+        
     }
     
     func setUpLocationManager(){
@@ -96,6 +81,24 @@ class RunningVC: UIViewController {
     }
     
     func checkLocationAuthorization(){
+        
+        switch CMAltimeter.authorizationStatus() {
+        case .notDetermined:
+            print("CMAltimeter.authorizationStatus not Determined")
+        case .restricted:
+            print("CMAltimeter.authorizationStatus Restricted")
+        case .denied:
+            print("CMAltimeter.authorizationStatus Denied")
+        case .authorized:
+            print("CMAltimeter.authorizationStatus Authorized")
+            if CMAltimeter.isRelativeAltitudeAvailable(){
+                print("Relative Altitude Available")
+                altimeterSetUp()
+            }
+        @unknown default:
+            break
+        }
+        
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
             print("Authorization notDetermined")
@@ -112,7 +115,6 @@ class RunningVC: UIViewController {
             print("startUpdatingLocation")
             locationManager.startUpdatingLocation()
             locationManager.startUpdatingHeading()
-            
         @unknown default:
             break
         }
@@ -218,11 +220,13 @@ class RunningVC: UIViewController {
         timer?.invalidate()
         locationManager.stopUpdatingLocation()
         locationManager.stopUpdatingHeading()
+        altimeter.stopRelativeAltitudeUpdates()
         let storyBoard : UIStoryboard = UIStoryboard(name: "HandMKit", bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "RunDetailsVC") as! RunDetailsVC
         
         nextVC.runTime = timeLbl.text
         nextVC.runningDistance = runningDistance/1000
+        nextVC.avgPace = avgPace
         
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -238,13 +242,15 @@ extension RunningVC: CLLocationManagerDelegate{
         for location in locations{
             if locations.count > 0 {
                 
-                print(locations.last?.coordinate)
+                print(locations.last)
                 
-                runningDistance += location.distance(from: startingLocation!)
-                
-                print("distance in km",runningDistance/1000)
-                
-                
+                if let startingLocation = startingLocation{
+                    runningDistance += location.distance(from: startingLocation)
+                    print("distance in km",runningDistance/1000)
+                    
+                    avgPace =  location.distance(from: startingLocation)/(location.timestamp.timeIntervalSince(startingLocation.timestamp)) //(runningDistance/1000) / counter
+
+                }
             }
         }
     }

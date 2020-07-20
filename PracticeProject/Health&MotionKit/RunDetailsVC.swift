@@ -27,7 +27,7 @@ class RunDetailsVC: UIViewController {
     typealias time = String
     
     var runningDistance: km?
-    var avgPace = 0
+    var avgPace = 0.0
     var runTime: String?
     var elvation: km?
     var caloriesBurned: cal?
@@ -45,7 +45,35 @@ class RunDetailsVC: UIViewController {
         resumeBtn.layer.cornerRadius = resumeBtn.frame.size.width / 2
         resumeBtn.layer.masksToBounds = true
         
-        distanceLbl.text = String(runningDistance!)
+        let flooredCounter = Int(floor(avgPace))
+
+        let hours = flooredCounter / 3600
+        var hoursString = String(hours)
+        if hours < 10 {
+            hoursString = "0\(hours)"
+        }
+
+        let minutes = flooredCounter / 60 % 60
+        var minutesString = String(minutes)
+
+        if minutes < 10 {
+            minutesString = "0\(minutes)"
+        }
+
+        let seconds = flooredCounter % 60
+        var secondsString = String(seconds)
+        if seconds < 10 {
+            secondsString = "0\(seconds)"
+        }
+        
+        if avgPace > 3600.0 {
+            paceLbl.text = "\(hoursString):\(minutesString):\(secondsString)"
+        } else{
+            paceLbl.text = "\(minutesString)'\(secondsString)\""
+        }
+        
+        distanceLbl.text = String(format: "%.1f", runningDistance!)
+//        paceLbl.text = String(avgPace)
         timeLbl.text = runTime
     }
     
