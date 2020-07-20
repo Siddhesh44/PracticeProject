@@ -196,7 +196,7 @@ extension ChannelVC: UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! MessageCell
         print(messages[indexPath.row])
-        cell.textLabel!.text = messages[indexPath.row]
+        cell.messageLbl!.text = messages[indexPath.row]
         return cell
     }
 }

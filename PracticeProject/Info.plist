@@ -20,6 +20,18 @@
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
+	<string>Need Permission</string>
+	<key>NSHealthShareUsageDescription</key>
+	<string>Need Permission</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>Need Permission</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Save Photo</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Need Permission</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Need Permission</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -60,7 +72,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Save Photo</string>
 </dict>
 </plist>

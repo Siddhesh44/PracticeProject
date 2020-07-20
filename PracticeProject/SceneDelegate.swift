@@ -27,26 +27,26 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //        self.window?.rootViewController = initialViewController
         
         
-        //        let storyboard = UIStoryboard(name: "Activity", bundle: nil)
-        //        let initialViewController = storyboard.instantiateViewController(withIdentifier: "ActivityViewController") as! ActivityViewController
-        //         let navigationController = UINavigationController(rootViewController: initialViewController)
+        let storyboard = UIStoryboard(name: "HandMKit", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "JetSetRunVC") as! JetSetRunVC
+        let navigationController = UINavigationController(rootViewController: initialViewController)
+        self.window?.rootViewController = navigationController
+        
+        
+        //        guard let windowScence = scene as? UIWindowScene, let pubnub = (UIApplication.shared.delegate as? AppDelegate)?.pubnub else { return }
+        //
+        //        let mainStoryboard : UIStoryboard = UIStoryboard(name: "PubNubStory", bundle: nil)
+        //
+        //        let rootVC = mainStoryboard.instantiateInitialViewController() as? SimpleChatAppVC
+        //        rootVC?.pubnub = pubnub
+        //        let navigationController = UINavigationController(rootViewController: rootVC!)
+        //       // let window = UIWindow(windowScene: windowScence)
+        //       // window.rootViewController = rootVC
         //        self.window?.rootViewController = navigationController
         
-        
-        guard let windowScence = scene as? UIWindowScene, let pubnub = (UIApplication.shared.delegate as? AppDelegate)?.pubnub else { return }
-        
-        let mainStoryboard : UIStoryboard = UIStoryboard(name: "PubNubStory", bundle: nil)
-        
-        let rootVC = mainStoryboard.instantiateInitialViewController() as? SimpleChatAppVC
-        rootVC?.pubnub = pubnub
-        let navigationController = UINavigationController(rootViewController: rootVC!)
-       // let window = UIWindow(windowScene: windowScence)
-       // window.rootViewController = rootVC
-        self.window?.rootViewController = navigationController
-
-//        window.makeKeyAndVisible()
-//
-//        self.window = window
+        //        window.makeKeyAndVisible()
+        //
+        //        self.window = window
         
     }
     

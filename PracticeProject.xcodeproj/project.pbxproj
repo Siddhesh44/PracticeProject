@@ -32,6 +32,13 @@
 		F6C552B4248A7A680022CCE5 /* TableInCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C552B3248A7A680022CCE5 /* TableInCellVC.swift */; };
 		F6C552B6248A7E170022CCE5 /* OuterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C552B5248A7E170022CCE5 /* OuterTableCell.swift */; };
 		F6C552B8248A7E270022CCE5 /* InnerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C552B7248A7E270022CCE5 /* InnerTableCell.swift */; };
+		F6CD3A1D24BDB87C007535BB /* HandMKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6CD3A1C24BDB87C007535BB /* HandMKit.storyboard */; };
+		F6CD3A2024BDBB99007535BB /* HandMKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CD3A1F24BDBB99007535BB /* HandMKitViewController.swift */; };
+		F6CD3A2324BDC153007535BB /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CD3A2224BDC153007535BB /* HealthKit.framework */; };
+		F6CD3A2524BF1C5D007535BB /* JetSetRunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CD3A2424BF1C5D007535BB /* JetSetRunVC.swift */; };
+		F6CD3A2724BF2655007535BB /* RunDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CD3A2624BF2655007535BB /* RunDetailsVC.swift */; };
+		F6D213A824C30A57001858B2 /* RunningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D213A724C30A57001858B2 /* RunningVC.swift */; };
+		F6E27B4524C02937003F0899 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E27B4424C02937003F0899 /* PageViewController.swift */; };
 		F6ED593C24934FA100AA57B8 /* PubNubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED593B24934FA100AA57B8 /* PubNubViewController.swift */; };
 		F6ED593E2493618400AA57B8 /* SimpleChatAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED593D2493618400AA57B8 /* SimpleChatAppVC.swift */; };
 		F6ED59402493637000AA57B8 /* ChannelVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED593F2493637000AA57B8 /* ChannelVC.swift */; };
@@ -68,6 +75,14 @@
 		F6C552B3248A7A680022CCE5 /* TableInCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableInCellVC.swift; sourceTree = "<group>"; };
 		F6C552B5248A7E170022CCE5 /* OuterTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterTableCell.swift; sourceTree = "<group>"; };
 		F6C552B7248A7E270022CCE5 /* InnerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerTableCell.swift; sourceTree = "<group>"; };
+		F6CD3A1C24BDB87C007535BB /* HandMKit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HandMKit.storyboard; sourceTree = "<group>"; };
+		F6CD3A1F24BDBB99007535BB /* HandMKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandMKitViewController.swift; sourceTree = "<group>"; };
+		F6CD3A2124BDC152007535BB /* PracticeProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PracticeProject.entitlements; sourceTree = "<group>"; };
+		F6CD3A2224BDC153007535BB /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
+		F6CD3A2424BF1C5D007535BB /* JetSetRunVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JetSetRunVC.swift; sourceTree = "<group>"; };
+		F6CD3A2624BF2655007535BB /* RunDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsVC.swift; sourceTree = "<group>"; };
+		F6D213A724C30A57001858B2 /* RunningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVC.swift; sourceTree = "<group>"; };
+		F6E27B4424C02937003F0899 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F6ED593B24934FA100AA57B8 /* PubNubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubNubViewController.swift; sourceTree = "<group>"; };
 		F6ED593D2493618400AA57B8 /* SimpleChatAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleChatAppVC.swift; sourceTree = "<group>"; };
 		F6ED593F2493637000AA57B8 /* ChannelVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelVC.swift; sourceTree = "<group>"; };
@@ -80,6 +95,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B5EF715F1CD6DB56B63BC3E /* Pods_PracticeProject.framework in Frameworks */,
+				F6CD3A2324BDC153007535BB /* HealthKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,6 +105,7 @@
 		D8605AAAA78D79B51753081F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6CD3A2224BDC153007535BB /* HealthKit.framework */,
 				BB0537974E4B1015A659F4E4 /* Pods_PracticeProject.framework */,
 			);
 			name = Frameworks;
@@ -160,6 +177,7 @@
 		F6C55294248A60E70022CCE5 /* PracticeProject */ = {
 			isa = PBXGroup;
 			children = (
+				F6CD3A2124BDC152007535BB /* PracticeProject.entitlements */,
 				F6C55295248A60E70022CCE5 /* AppDelegate.swift */,
 				F6C552B1248A66520022CCE5 /* SceneDelegate.swift */,
 				F6C55299248A60E70022CCE5 /* ViewController.swift */,
@@ -172,6 +190,7 @@
 				F6C552AE248A615A0022CCE5 /* TableView */,
 				F602FE0F248B9CC300E2167E /* GCD */,
 				F6BC00A22490A23E00A0DBBC /* Activity */,
+				F6CD3A1E24BDB887007535BB /* Health&MotionKit */,
 			);
 			path = PracticeProject;
 			sourceTree = "<group>";
@@ -187,6 +206,19 @@
 				F602FE0B248B674B00E2167E /* TableData.swift */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		F6CD3A1E24BDB887007535BB /* Health&MotionKit */ = {
+			isa = PBXGroup;
+			children = (
+				F6CD3A1C24BDB87C007535BB /* HandMKit.storyboard */,
+				F6D213A724C30A57001858B2 /* RunningVC.swift */,
+				F6CD3A2624BF2655007535BB /* RunDetailsVC.swift */,
+				F6E27B4424C02937003F0899 /* PageViewController.swift */,
+				F6CD3A1F24BDBB99007535BB /* HandMKitViewController.swift */,
+				F6CD3A2424BF1C5D007535BB /* JetSetRunVC.swift */,
+			);
+			path = "Health&MotionKit";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,6 +283,7 @@
 			files = (
 				F6C552A5248A60EE0022CCE5 /* LaunchScreen.storyboard in Resources */,
 				F6BC00A12490A23800A0DBBC /* Activity.storyboard in Resources */,
+				F6CD3A1D24BDB87C007535BB /* HandMKit.storyboard in Resources */,
 				F602FE0E248B9CBD00E2167E /* GCD.storyboard in Resources */,
 				F6AE090824923A35005B47D5 /* PubNubStory.storyboard in Resources */,
 				F6C552A2248A60EE0022CCE5 /* Assets.xcassets in Resources */,
@@ -309,8 +342,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				F6BC00A62490E5F900A0DBBC /* customActivityController.swift in Sources */,
+				F6CD3A2724BF2655007535BB /* RunDetailsVC.swift in Sources */,
 				F6C552B6248A7E170022CCE5 /* OuterTableCell.swift in Sources */,
 				F602FE11248B9CE600E2167E /* GCDViewController.swift in Sources */,
+				F6D213A824C30A57001858B2 /* RunningVC.swift in Sources */,
 				F602FE13248CEFFD00E2167E /* GCDExampleVC.swift in Sources */,
 				F6ED59402493637000AA57B8 /* ChannelVC.swift in Sources */,
 				F6C552B2248A66520022CCE5 /* SceneDelegate.swift in Sources */,
@@ -318,14 +353,17 @@
 				F6C5529A248A60E70022CCE5 /* ViewController.swift in Sources */,
 				F6BC00AA2491030200A0DBBC /* ActivityViewCustomActivity.swift in Sources */,
 				F602FE0C248B674B00E2167E /* TableData.swift in Sources */,
+				F6E27B4524C02937003F0899 /* PageViewController.swift in Sources */,
 				F6C552B8248A7E270022CCE5 /* InnerTableCell.swift in Sources */,
 				F6C55296248A60E70022CCE5 /* AppDelegate.swift in Sources */,
+				F6CD3A2524BF1C5D007535BB /* JetSetRunVC.swift in Sources */,
 				F6ED593E2493618400AA57B8 /* SimpleChatAppVC.swift in Sources */,
 				F6C552A0248A60E70022CCE5 /* PracticeProject.xcdatamodeld in Sources */,
 				F602FE17248E0CF200E2167E /* SemaphoreVC.swift in Sources */,
 				F6C552B4248A7A680022CCE5 /* TableInCellVC.swift in Sources */,
 				F6BC00A42490A28500A0DBBC /* ActivityViewController.swift in Sources */,
 				F602FE15248D3F5F00E2167E /* WorkItemandGroupVC.swift in Sources */,
+				F6CD3A2024BDBB99007535BB /* HandMKitViewController.swift in Sources */,
 				F6ED593C24934FA100AA57B8 /* PubNubViewController.swift in Sources */,
 				F6C552B0248A61770022CCE5 /* TableViewVC.swift in Sources */,
 				F6ED59422493650E00AA57B8 /* MessageCell.swift in Sources */,
@@ -473,6 +511,7 @@
 			baseConfigurationReference = 6927DE8504B532C12C27C55B /* Pods-PracticeProject.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PracticeProject/PracticeProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PracticeProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -491,6 +530,7 @@
 			baseConfigurationReference = E30E2E9279FF6B63B5113284 /* Pods-PracticeProject.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = PracticeProject/PracticeProject.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = PracticeProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

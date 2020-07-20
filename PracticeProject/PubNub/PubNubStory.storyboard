@@ -115,12 +115,29 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="kO2-Qn-s9x" customClass="MessageCell" customModule="PracticeProject" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="28" width="414" height="31"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kO2-Qn-s9x" id="wFf-fY-L5h">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="31"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mzn-Pv-Pa9">
+                                                    <rect key="frame" x="5" y="5" width="404" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="mzn-Pv-Pa9" secondAttribute="trailing" constant="5" id="RDy-GU-iFS"/>
+                                                <constraint firstItem="mzn-Pv-Pa9" firstAttribute="leading" secondItem="wFf-fY-L5h" secondAttribute="leading" constant="5" id="WNJ-GQ-2Wh"/>
+                                                <constraint firstItem="mzn-Pv-Pa9" firstAttribute="top" secondItem="wFf-fY-L5h" secondAttribute="top" constant="5" id="rzP-Y0-BEr"/>
+                                                <constraint firstAttribute="bottom" secondItem="mzn-Pv-Pa9" secondAttribute="bottom" constant="5" id="w1d-Dc-wcS"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="messageLbl" destination="mzn-Pv-Pa9" id="xHT-LM-pfF"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>

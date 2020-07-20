@@ -21,6 +21,7 @@ class PubNubViewController: UIViewController {
         super.viewDidLoad()
 
         setUpPubNub()
+        
     }
     
     func setUpPubNub(){
