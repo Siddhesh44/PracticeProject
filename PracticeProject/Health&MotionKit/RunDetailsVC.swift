@@ -45,6 +45,7 @@ class RunDetailsVC: UIViewController {
         resumeBtn.layer.cornerRadius = resumeBtn.frame.size.width / 2
         resumeBtn.layer.masksToBounds = true
         
+        distanceLbl.text = String(runningDistance!)
         timeLbl.text = runTime
     }
     

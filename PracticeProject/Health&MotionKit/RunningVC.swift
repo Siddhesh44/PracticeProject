@@ -222,6 +222,7 @@ class RunningVC: UIViewController {
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "RunDetailsVC") as! RunDetailsVC
         
         nextVC.runTime = timeLbl.text
+        nextVC.runningDistance = runningDistance/1000
         
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -236,19 +237,20 @@ extension RunningVC: CLLocationManagerDelegate{
         
         for location in locations{
             if locations.count > 0 {
+                
                 print(locations.last?.coordinate)
                 
-                runningDistance += location.distance(from: locations.last!)
+                runningDistance += location.distance(from: startingLocation!)
                 
                 print("distance in km",runningDistance/1000)
                 
-                print(location.timestamp.timeIntervalSince(startingLocation!.timestamp))
-
-                print(avgPace)
+                
             }
         }
     }
+    
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
         checkLocationAuthorization()
     }
+    
 }
