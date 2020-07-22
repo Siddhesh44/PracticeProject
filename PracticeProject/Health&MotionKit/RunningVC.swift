@@ -21,22 +21,27 @@ class RunningVC: UIViewController {
     typealias km = Double
     typealias cal = Double
     typealias time = String
+    typealias kg = Double
+    
     
     var runningDistance: km = 0.0
     var avgPace = 0.0
     var runTime: time?
-    var elvation: km?
+    var elevation: km?
     var caloriesBurned: cal?
     var bpm: Double?
-    
+    var userWeight: kg?
     var timer: Timer?
-    var counter = 0.0
+    var counter = 0
     
+    lazy var locationsArray = [CLLocation]()
+
     var startingLocation:CLLocation?
-    
+    var isHasRequriedPermissions = false
     
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var stopRunBtn: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
@@ -44,11 +49,11 @@ class RunningVC: UIViewController {
         stopRunBtn.layer.cornerRadius = stopRunBtn.frame.size.width / 2
         stopRunBtn.layer.masksToBounds = true
         
-        authorizeHealthKit()
+        if isHasRequriedPermissions{
+            getDataFromHealthApp()
+        }
         checkLocationServices()
         
-        print("current location",locationManager.location?.coordinate)
-        startingLocation = locationManager.location
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -68,7 +73,7 @@ class RunningVC: UIViewController {
         locationManager.delegate = self
         locationManager.desiredAccuracy =  kCLLocationAccuracyBest
         locationManager.activityType = .fitness
-        locationManager.distanceFilter = 0
+        locationManager.distanceFilter = 10
     }
     
     func checkLocationServices(){
@@ -120,59 +125,32 @@ class RunningVC: UIViewController {
         }
     }
     
-    func authorizeHealthKit(){
+    func getDataFromHealthApp(){
         
-        let writeTypes = Set([HKWorkoutType.quantityType(forIdentifier: .distanceWalkingRunning),
-                              HKActivitySummaryType.quantityType(forIdentifier: .activeEnergyBurned),
-                              HKObjectType.quantityType(forIdentifier: .heartRate)])
-        
-        let readTypes = Set([HKSampleType.quantityType(forIdentifier: .distanceWalkingRunning),
-                             HKSampleType.quantityType(forIdentifier: .activeEnergyBurned),
-                             HKSampleType.quantityType(forIdentifier: .heartRate)])
-        
-        if !HKHealthStore.isHealthDataAvailable(){
-            print("Error Occured")
+        guard let weightSample = HKWorkoutType.quantityType(forIdentifier: .bodyMass) else {
             return
         }
         
-        healthStore.requestAuthorization(toShare: writeTypes as? Set<HKSampleType>, read: readTypes as? Set<HKObjectType>) { (success, error) in
-            if success {
-                print("Permission Granted",success)
-                self.getRunData()
-            }else{
-                print("Error Occured",error!.localizedDescription)
-            }
-        }
-    }
-    
-    func getRunData(){
-        
-        guard let runSample = HKWorkoutType.quantityType(forIdentifier: .distanceWalkingRunning) else {
-            return
-        }
-        
-        let runQuery = HKSampleQuery(sampleType: runSample, predicate: nil, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (sample, result, error) in
-            print("sample",sample)
+        let weightQuery = HKSampleQuery(sampleType: weightSample, predicate: nil, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (sample, result, error) in
+            print("weight sample",sample)
             if !result!.isEmpty{
                 print(result!)
-                let data = result![0] as! HKQuantitySample
-                let unit = HKUnit(from: "mi")
-                print("Step Count",data.quantity.doubleValue(for: unit))
-                
-                let mil = Double(data.quantity.doubleValue(for: unit))
-                let km = mil * 1.6
-                print("Kilometers",km)
+                let last = (result!.count - 1)
+                let data = result![last] as! HKQuantitySample
+                let unit = HKUnit(from: "lb")
+                print("Weight of user is:- ",data.quantity.doubleValue(for: unit))
+                self.userWeight = data.quantity.doubleValue(for: unit)
             }else{
                 print("error",error!.localizedDescription)
             }
         }
         
-        healthStore.execute(runQuery)
+        healthStore.execute(weightQuery)
         
     }
     
     func createTimer() {
-        timer = Timer.scheduledTimer(timeInterval: 0.1,
+        timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
                                      selector: #selector(updateTimer),
                                      userInfo: nil,
@@ -181,30 +159,28 @@ class RunningVC: UIViewController {
     
     func updateTime(){
         
-        counter += 0.1
+        counter += 1
         
-        let flooredCounter = Int(floor(counter))
-        
-        let hours = flooredCounter / 3600
+        let hours = counter / 3600
         var hoursString = String(hours)
         if hours < 10 {
             hoursString = "0\(hours)"
         }
         
-        let minutes = flooredCounter / 60 % 60
+        let minutes = counter / 60 % 60
         var minutesString = String(minutes)
         
         if minutes < 10 {
             minutesString = "0\(minutes)"
         }
         
-        let seconds = flooredCounter % 60
+        let seconds = counter % 60
         var secondsString = String(seconds)
         if seconds < 10 {
             secondsString = "0\(seconds)"
         }
         
-        if counter > 3600.0 {
+        if counter > 3600 {
             timeLbl.text = "\(hoursString):\(minutesString):\(secondsString)"
         } else{
             timeLbl.text = "\(minutesString):\(secondsString)"
@@ -225,8 +201,11 @@ class RunningVC: UIViewController {
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "RunDetailsVC") as! RunDetailsVC
         
         nextVC.runTime = timeLbl.text
-        nextVC.runningDistance = runningDistance/1000
+        nextVC.runningDistance = runningDistance / 1000
+        nextVC.elevation = elevation
         nextVC.avgPace = avgPace
+        nextVC.userWeight = userWeight
+        nextVC.counter = counter
         
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -236,21 +215,20 @@ class RunningVC: UIViewController {
 
 extension RunningVC: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Altitude CLL",locations.last?.altitude.stringOptional)
-        //print(locations.last?.coordinate)
         
-        for location in locations{
-            if locations.count > 0 {
-                
-                print(locations.last)
-                
-                if let startingLocation = startingLocation{
-                    runningDistance += location.distance(from: startingLocation)
-                    print("distance in km",runningDistance/1000)
-                    
-                    avgPace =  location.distance(from: startingLocation)/(location.timestamp.timeIntervalSince(startingLocation.timestamp)) //(runningDistance/1000) / counter
+        locationsArray.append(contentsOf: locations)
+        
+        if locationsArray.count > 0 {
 
-                }
+            for location in locationsArray{
+
+               
+                runningDistance += location.distance(from: self.locationsArray.last!)
+
+                elevation = locationsArray.last?.altitude
+
+                avgPace = location.distance(from: self.locationsArray.last!)/(location.timestamp.timeIntervalSince(self.locationsArray.last!.timestamp))
+
             }
         }
     }

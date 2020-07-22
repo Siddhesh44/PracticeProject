@@ -25,13 +25,17 @@ class RunDetailsVC: UIViewController {
     typealias km = Double
     typealias cal = Double
     typealias time = String
+    typealias kg = Double
     
     var runningDistance: km?
     var avgPace = 0.0
     var runTime: String?
-    var elvation: km?
+    var elevation: km?
     var caloriesBurned: cal?
     var bpm: Double?
+    var userWeight: kg?
+    var counter: Int?
+    
     
     
     override func viewDidLoad() {
@@ -45,36 +49,19 @@ class RunDetailsVC: UIViewController {
         resumeBtn.layer.cornerRadius = resumeBtn.frame.size.width / 2
         resumeBtn.layer.masksToBounds = true
         
-        let flooredCounter = Int(floor(avgPace))
-
-        let hours = flooredCounter / 3600
-        var hoursString = String(hours)
-        if hours < 10 {
-            hoursString = "0\(hours)"
-        }
-
-        let minutes = flooredCounter / 60 % 60
-        var minutesString = String(minutes)
-
-        if minutes < 10 {
-            minutesString = "0\(minutes)"
-        }
-
-        let seconds = flooredCounter % 60
-        var secondsString = String(seconds)
-        if seconds < 10 {
-            secondsString = "0\(seconds)"
-        }
-        
-        if avgPace > 3600.0 {
-            paceLbl.text = "\(hoursString):\(minutesString):\(secondsString)"
-        } else{
-            paceLbl.text = "\(minutesString)'\(secondsString)\""
-        }
+        setAvgPace()
+        setCalBurn()
         
         distanceLbl.text = String(format: "%.1f", runningDistance!)
-//        paceLbl.text = String(avgPace)
         timeLbl.text = runTime
+        if let elevation = elevation{
+            if elevation > 0{
+                elevationLbl.text = "\(elevation)m"
+            }else{
+                elevationLbl.text = "0m"
+                
+            }
+        }
     }
     
     //    MARK: Button Actions
@@ -83,4 +70,78 @@ class RunDetailsVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    func setAvgPace(){
+        // minutes per km = minutes divided by km
+        let paceInMPK = (Double(counter!) / 60) / (runningDistance!)
+        let paceMinutes = Int(paceInMPK)
+        let paceDecimal = paceInMPK - Double(paceMinutes)
+        let paceSec = Int(paceDecimal * 60)
+        
+        paceLbl.text = "\(paceMinutes)'\(paceSec)\""
+    }
+    
+    func setCalBurn(){
+        let paceInMPH = (runningDistance! / 1.609) / (Double(counter!) / 360)
+        print(paceInMPH)
+        
+        var MET = 0.0
+        switch paceInMPH {
+        case 0...0.5:
+            MET = 0.1
+        case 0.5...1.0:
+            MET = 1
+        case 1.0..<2.0:
+            MET = 1.3
+        case 2.0..<3.0:
+            MET = 2.5
+        case 3.0..<4.0:
+            MET = 3.5
+        case 4.0..<5.0:
+            MET = 5
+        case 4.0..<5.0:
+            MET = 8.3
+        case 5.0..<5.2:
+            MET = 9
+        case 5.2..<6.0:
+            MET = 9.8
+        case 6.0..<6.7:
+            MET = 10.5
+        case 6.7..<7.0:
+            MET = 11
+        case 7.0..<7.5:
+            MET = 11.5
+        case 7.5..<8.0:
+            MET = 11.8
+        case 8.0..<8.6:
+            MET = 12.3
+        case 8.6..<9.0:
+            MET = 12.8
+        case 9.0..<10.0:
+            MET = 14.5
+        case 10.0..<11.0:
+            MET = 16
+        case 11.0..<12.0:
+            MET = 19
+        case 12.0..<13.0:
+            MET = 19.8
+        case 13.0..<14.0,14.0...:
+            MET = 23
+        default:
+            break
+        }
+        print(userWeight)
+        print(MET)
+        let time = (Double(counter!) / 360)
+        print("time",time)
+        let caloriesBurned = Int((time) * (MET * 0.175 * userWeight!))
+        print(caloriesBurned)
+        calLbl.text = "\(caloriesBurned)"
+        
+    }
+    
 }
+
+
+
+
+
