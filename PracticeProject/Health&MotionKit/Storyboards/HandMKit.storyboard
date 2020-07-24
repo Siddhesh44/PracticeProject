@@ -422,6 +422,9 @@
                                                 <state key="normal" image="stop.fill" catalog="system">
                                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="25"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="finishRunBtn:" destination="N67-9k-tIq" eventType="touchUpInside" id="QOY-WW-YXi"/>
+                                                </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EOI-qP-xoS">
                                                 <rect key="frame" x="194" y="0.0" width="100" height="100"/>
@@ -470,10 +473,10 @@
                         <outlet property="calLbl" destination="WoQ-Xy-nbY" id="SxA-al-jpf"/>
                         <outlet property="distanceLbl" destination="JMr-05-wJV" id="pxs-ES-Pd6"/>
                         <outlet property="elevationLbl" destination="2Qy-Rf-ahm" id="AaN-u5-IKy"/>
+                        <outlet property="finishBtn" destination="M9B-KI-pyk" id="7Lo-SH-EpC"/>
                         <outlet property="mapHeight" destination="CaS-1F-X4u" id="fjv-dL-ZQb"/>
                         <outlet property="paceLbl" destination="fOe-Nv-JzJ" id="TJq-CY-0I2"/>
                         <outlet property="resumeBtn" destination="EOI-qP-xoS" id="cRC-rU-o5s"/>
-                        <outlet property="stopBtn" destination="M9B-KI-pyk" id="7Lo-SH-EpC"/>
                         <outlet property="timeLbl" destination="Fi1-2l-X3l" id="VwN-ht-hpi"/>
                     </connections>
                 </viewController>

@@ -28,14 +28,14 @@ class JetSetRunVC: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         
-        startBtn.layer.cornerRadius = startBtn.frame.size.width / 2
-        startBtn.layer.masksToBounds = true
+        startBtn.circularButton()
         
         healthKitHelper.healthKitDelegate = self
         
         checkAuthorizations()
         authorizeHealthKit()
     }
+    
     func authorizeHealthKit(){
         
         let writeTypes = Set([HKWorkoutType.quantityType(forIdentifier: .distanceWalkingRunning),
@@ -52,7 +52,7 @@ class JetSetRunVC: UIViewController {
             return
         }
         
-        healthKitHelper.requestAuthorizationFromHealthKit(toWrite: (writeTypes as? Set<HKSampleType>)!, toRead: (readTypes as? Set<HKObjectType>)!)
+        healthKitHelper.requestAuthorizationFromHealthKit(toWrite: (writeTypes as! Set<HKSampleType>), toRead: (readTypes as! Set<HKObjectType>))
     }
     
     func checkAuthorizations(){
@@ -92,6 +92,7 @@ class JetSetRunVC: UIViewController {
         }
     }
     
+    // MARK: Event Actions
     @IBAction func startRunBtn(_ sender: UIButton) {
         print("Start Run")
         let storyBoard : UIStoryboard = UIStoryboard(name: "HandMKit", bundle: nil)
@@ -104,7 +105,11 @@ class JetSetRunVC: UIViewController {
     }
 }
 
+// MARK: Extensions
+
 extension JetSetRunVC: HealthKitDelegates{
+    func getWeight(weight: Double) { }
+    
     func didGetResults(success: Bool, result: String) {
         if success{
             self.isHasHealthStorePermission = true

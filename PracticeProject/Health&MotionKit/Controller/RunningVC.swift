@@ -14,6 +14,8 @@ import CoreLocation
 class RunningVC: UIViewController {
     
     let commonFunction = CommonFunctions()
+    let healthKitHelper = HealthKitHelper()
+    
     let healthStore = HKHealthStore()
     let motionManager = CMMotionManager()
     let altimeter = CMAltimeter()
@@ -50,12 +52,13 @@ class RunningVC: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         
-        stopRunBtn.layer.cornerRadius = stopRunBtn.frame.size.width / 2
-        stopRunBtn.layer.masksToBounds = true
+        stopRunBtn.circularButton()
+        
+        healthKitHelper.healthKitDelegate = self
         
         if isHasRequriedPermissions{
             print("Got All Permissions")
-            getDataFromHealthApp()
+            healthKitHelper.getWeigntDataFromHealthApp()
             altimeterSetUp()
             setUpLocationManager()
             locationManager.startUpdatingLocation()
@@ -120,41 +123,6 @@ class RunningVC: UIViewController {
         }
     }
     
-    func getDataFromHealthApp(){
-        
-        guard let weightSample = HKWorkoutType.quantityType(forIdentifier: .bodyMass) else {
-            return
-        }
-        
-        let weightQuery = HKSampleQuery(sampleType: weightSample, predicate: nil, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (sample, result, error) in
-            print("weight sample",sample)
-            if let result = result{
-                if !result.isEmpty{
-                    print(result.count)
-                    if result.count > 1{
-                        let last = (result.count - 1)
-                        let data = result[last] as! HKQuantitySample
-                        let unit = HKUnit(from: "lb")
-                        print("Weight of user is:- ",data.quantity.doubleValue(for: unit))
-                        self.userWeight = data.quantity.doubleValue(for: unit)
-                    } else{
-                        let data = result[0] as! HKQuantitySample
-                        let unit = HKUnit(from: "lb")
-                        print("Weight of user is:- ",data.quantity.doubleValue(for: unit))
-                        self.userWeight = data.quantity.doubleValue(for: unit)
-                    }
-                }else{
-                    if let error = error{
-                        print("error",error.localizedDescription)
-                    }
-                }
-            }
-        }
-        
-        healthStore.execute(weightQuery)
-        
-    }
-    
     func createTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
@@ -176,6 +144,8 @@ class RunningVC: UIViewController {
         updateTime()
     }
     
+    // MARK: Event Actions
+    
     @IBAction func stopRun(_ sender: UIButton) {
         timer?.invalidate()
         locationManager.stopUpdatingLocation()
@@ -195,6 +165,8 @@ class RunningVC: UIViewController {
     
 }
 
+//Mark: Extensions
+
 extension RunningVC: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
@@ -213,3 +185,14 @@ extension RunningVC: CLLocationManagerDelegate{
     }
     
 }
+
+// MARK: Extensions
+
+extension RunningVC: HealthKitDelegates{
+    func getWeight(weight: Double) {
+        userWeight = weight
+    }
+    
+    func didGetResults(success: Bool, result: String) { }
+}
+

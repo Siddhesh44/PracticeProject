@@ -11,9 +11,10 @@ import HealthKit
 
 class RunDetailsVC: UIViewController {
     
-    @IBOutlet weak var stopBtn: UIButton!
-    @IBOutlet weak var resumeBtn: UIButton!
+    let healthKitHelper = HealthKitHelper()
     
+    @IBOutlet weak var finishBtn: UIButton!
+    @IBOutlet weak var resumeBtn: UIButton!
     
     @IBOutlet weak var distanceLbl: UILabel!
     @IBOutlet weak var paceLbl: UILabel!
@@ -30,7 +31,7 @@ class RunDetailsVC: UIViewController {
     var runningDistance: km?
     var runTime: String?
     var elevation: km?
-    var caloriesBurned: cal?
+    var caloriesBurned: cal = 0.0
     var bpm: Double?
     var userWeight: kg?
     var counter: Int?
@@ -40,17 +41,16 @@ class RunDetailsVC: UIViewController {
     
     override func viewDidLoad() {
         
+        healthKitHelper.healthKitDelegate = self
+        
         let screenHeight = UIScreen.main.bounds.height
         print(screenHeight,screenHeight/3)
         mapHeight.constant = screenHeight/3
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         
-        stopBtn.layer.cornerRadius = stopBtn.frame.size.width / 2
-        stopBtn.layer.masksToBounds = true
-        
-        resumeBtn.layer.cornerRadius = resumeBtn.frame.size.width / 2
-        resumeBtn.layer.masksToBounds = true
+        finishBtn.circularButton()
+        resumeBtn.circularButton()
         
         setAvgPace()
         setCalBurn()
@@ -66,12 +66,6 @@ class RunDetailsVC: UIViewController {
                 
             }
         }
-    }
-    
-    //    MARK: Button Actions
-    
-    @IBAction func resumeRunBtn(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
     }
     
     // MARK: UserDefined Functions
@@ -137,18 +131,42 @@ class RunDetailsVC: UIViewController {
         default:
             break
         }
-        print(userWeight)
+        
         print(MET)
         let time = (Double(counter!) / 3600)
         print("time",time)
-        let caloriesBurned = (time) * (MET * userWeight!)
+        caloriesBurned = (time) * (MET * userWeight!)
         print(caloriesBurned)
         calLbl.text = "\(Int(caloriesBurned))"
         
     }
     
+    // MARK: Event Actions
+    
+    @IBAction func resumeRunBtn(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func finishRunBtn(_ sender: UIButton) {
+        
+        healthKitHelper.saveRunData(time: counter!, distance: runningDistance!, caloriesBurned: Int(caloriesBurned))
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "HandMKit", bundle: nil)
+        let nextVC = storyBoard.instantiateViewController(withIdentifier: "JetSetRunVC") as! JetSetRunVC
+        self.navigationController?.pushViewController(nextVC, animated: true)
+    }
+    
 }
 
+extension RunDetailsVC: HealthKitDelegates{
+    func didGetResults(success: Bool, result: String) {
+        print(result)
+    }
+    
+    func getWeight(weight: Double) { }
+    
+    
+}
 
 
 

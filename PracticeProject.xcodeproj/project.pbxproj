@@ -17,6 +17,7 @@
 		F65D3A6724C9B8D10032512A /* pinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A6624C9B8D10032512A /* pinkViewController.swift */; };
 		F65D3A6924CAA7870032512A /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A6824CAA7860032512A /* CommonFunctions.swift */; };
 		F65D3A7124CABB420032512A /* HealthKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A7024CABB420032512A /* HealthKitHelper.swift */; };
+		F65D3A7324CAD7780032512A /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A7224CAD7780032512A /* Extension + Button.swift */; };
 		F6AE090824923A35005B47D5 /* PubNubStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6AE090724923A35005B47D5 /* PubNubStory.storyboard */; };
 		F6AE090B24923A7C005B47D5 /* PubNubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AE090A24923A7C005B47D5 /* PubNubVC.swift */; };
 		F6BC00A12490A23800A0DBBC /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BC00A02490A23800A0DBBC /* Activity.storyboard */; };
@@ -61,6 +62,7 @@
 		F65D3A6624C9B8D10032512A /* pinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pinkViewController.swift; sourceTree = "<group>"; };
 		F65D3A6824CAA7860032512A /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		F65D3A7024CABB420032512A /* HealthKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHelper.swift; sourceTree = "<group>"; };
+		F65D3A7224CAD7780032512A /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
 		F6AE090724923A35005B47D5 /* PubNubStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PubNubStory.storyboard; sourceTree = "<group>"; };
 		F6AE090A24923A7C005B47D5 /* PubNubVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubNubVC.swift; sourceTree = "<group>"; };
 		F6BC00A02490A23800A0DBBC /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				F65D3A6824CAA7860032512A /* CommonFunctions.swift */,
+				F65D3A7424CAD77C0032512A /* Extensions */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -185,6 +188,14 @@
 				F65D3A7024CABB420032512A /* HealthKitHelper.swift */,
 			);
 			path = Helper;
+			sourceTree = "<group>";
+		};
+		F65D3A7424CAD77C0032512A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F65D3A7224CAD7780032512A /* Extension + Button.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F6AE090924923A51005B47D5 /* PubNub */ = {
@@ -409,6 +420,7 @@
 				F6C552B2248A66520022CCE5 /* SceneDelegate.swift in Sources */,
 				F6AE090B24923A7C005B47D5 /* PubNubVC.swift in Sources */,
 				F6C5529A248A60E70022CCE5 /* ViewController.swift in Sources */,
+				F65D3A7324CAD7780032512A /* Extension + Button.swift in Sources */,
 				F6BC00AA2491030200A0DBBC /* ActivityViewCustomActivity.swift in Sources */,
 				F602FE0C248B674B00E2167E /* TableData.swift in Sources */,
 				F6E27B4524C02937003F0899 /* PageViewController.swift in Sources */,
