@@ -28,7 +28,6 @@ class RunDetailsVC: UIViewController {
     typealias kg = Double
     
     var runningDistance: km?
-    var avgPace = 0.0
     var runTime: String?
     var elevation: km?
     var caloriesBurned: cal?
@@ -36,10 +35,14 @@ class RunDetailsVC: UIViewController {
     var userWeight: kg?
     var counter: Int?
     
+    @IBOutlet weak var mapHeight: NSLayoutConstraint!
     
     
     override func viewDidLoad() {
         
+        let screenHeight = UIScreen.main.bounds.height
+        print(screenHeight,screenHeight/3)
+        mapHeight.constant = screenHeight/3
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         
@@ -53,6 +56,7 @@ class RunDetailsVC: UIViewController {
         setCalBurn()
         
         distanceLbl.text = String(format: "%.1f", runningDistance!)
+        
         timeLbl.text = runTime
         if let elevation = elevation{
             if elevation > 0{
@@ -70,9 +74,13 @@ class RunDetailsVC: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    // MARK: UserDefined Functions
     func setAvgPace(){
         // minutes per km = minutes divided by km
-        let paceInMPK = (Double(counter!) / 60) / (runningDistance!)
+        var paceInMPK = (Double(counter!) / 60) / (runningDistance!)
+        if paceInMPK.isNaN || paceInMPK.isInfinite {
+            paceInMPK = 0.0
+        }
         let paceMinutes = Int(paceInMPK)
         let paceDecimal = paceInMPK - Double(paceMinutes)
         let paceSec = Int(paceDecimal * 60)
@@ -81,7 +89,7 @@ class RunDetailsVC: UIViewController {
     }
     
     func setCalBurn(){
-        let paceInMPH = (runningDistance! / 1.609) / (Double(counter!) / 360)
+        let paceInMPH = (runningDistance!) / (Double(counter!) / 3600)
         print(paceInMPH)
         
         var MET = 0.0
@@ -131,11 +139,11 @@ class RunDetailsVC: UIViewController {
         }
         print(userWeight)
         print(MET)
-        let time = (Double(counter!) / 360)
+        let time = (Double(counter!) / 3600)
         print("time",time)
-        let caloriesBurned = Int((time) * (MET * 0.175 * userWeight!))
+        let caloriesBurned = (time) * (MET * userWeight!)
         print(caloriesBurned)
-        calLbl.text = "\(caloriesBurned)"
+        calLbl.text = "\(Int(caloriesBurned))"
         
     }
     

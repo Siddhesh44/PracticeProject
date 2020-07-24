@@ -13,6 +13,7 @@ import CoreLocation
 
 class RunningVC: UIViewController {
     
+    let commonFunction = CommonFunctions()
     let healthStore = HKHealthStore()
     let motionManager = CMMotionManager()
     let altimeter = CMAltimeter()
@@ -25,7 +26,6 @@ class RunningVC: UIViewController {
     
     
     var runningDistance: km = 0.0
-    var avgPace = 0.0
     var runTime: time?
     var elevation: km?
     var caloriesBurned: cal?
@@ -35,12 +35,16 @@ class RunningVC: UIViewController {
     var counter = 0
     
     lazy var locationsArray = [CLLocation]()
-
+    
     var startingLocation:CLLocation?
     var isHasRequriedPermissions = false
     
     @IBOutlet weak var timeLbl: UILabel!
     @IBOutlet weak var stopRunBtn: UIButton!
+    @IBOutlet weak var paceLbl: UILabel!
+    @IBOutlet weak var bpmLbl: UILabel!
+    @IBOutlet weak var distanceLbl: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,20 +54,26 @@ class RunningVC: UIViewController {
         stopRunBtn.layer.masksToBounds = true
         
         if isHasRequriedPermissions{
+            print("Got All Permissions")
             getDataFromHealthApp()
+            altimeterSetUp()
+            setUpLocationManager()
+            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
+            createTimer()
         }
-        checkLocationServices()
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        createTimer()
     }
     
     func altimeterSetUp(){
         altimeter.startRelativeAltitudeUpdates(to: .main) { (data, error) in
-            if error != nil { print("Error in getting data",error!) } else{
-                print("Altitude Change",data?.relativeAltitude.stringValue)
+            if error != nil {
+                if let error = error{
+                    print("Error in getting data",error.localizedDescription)
+                }
+            } else{
+                if let data = data{
+                    print("Altitude Change",data.relativeAltitude.stringValue)
+                }
             }
         }
         
@@ -79,30 +89,13 @@ class RunningVC: UIViewController {
     func checkLocationServices(){
         if CLLocationManager.locationServicesEnabled(){
             setUpLocationManager()
-            checkLocationAuthorization()
+            checkAuthorizations()
         } else{
             print("Check Location Services Unavailable")
         }
     }
     
-    func checkLocationAuthorization(){
-        
-        switch CMAltimeter.authorizationStatus() {
-        case .notDetermined:
-            print("CMAltimeter.authorizationStatus not Determined")
-        case .restricted:
-            print("CMAltimeter.authorizationStatus Restricted")
-        case .denied:
-            print("CMAltimeter.authorizationStatus Denied")
-        case .authorized:
-            print("CMAltimeter.authorizationStatus Authorized")
-            if CMAltimeter.isRelativeAltitudeAvailable(){
-                print("Relative Altitude Available")
-                altimeterSetUp()
-            }
-        @unknown default:
-            break
-        }
+    func checkAuthorizations(){
         
         switch CLLocationManager.authorizationStatus() {
         case .notDetermined:
@@ -114,10 +107,12 @@ class RunningVC: UIViewController {
             print("Authorization Denied")
         case .authorizedAlways:
             print("Authorized Always")
+            setUpLocationManager()
             locationManager.startUpdatingLocation()
             locationManager.startUpdatingHeading()
         case .authorizedWhenInUse:
-            print("startUpdatingLocation")
+            print("authorizedWhenInUse")
+            setUpLocationManager()
             locationManager.startUpdatingLocation()
             locationManager.startUpdatingHeading()
         @unknown default:
@@ -133,15 +128,26 @@ class RunningVC: UIViewController {
         
         let weightQuery = HKSampleQuery(sampleType: weightSample, predicate: nil, limit: Int(HKObjectQueryNoLimit), sortDescriptors: nil) { (sample, result, error) in
             print("weight sample",sample)
-            if !result!.isEmpty{
-                print(result!)
-                let last = (result!.count - 1)
-                let data = result![last] as! HKQuantitySample
-                let unit = HKUnit(from: "lb")
-                print("Weight of user is:- ",data.quantity.doubleValue(for: unit))
-                self.userWeight = data.quantity.doubleValue(for: unit)
-            }else{
-                print("error",error!.localizedDescription)
+            if let result = result{
+                if !result.isEmpty{
+                    print(result.count)
+                    if result.count > 1{
+                        let last = (result.count - 1)
+                        let data = result[last] as! HKQuantitySample
+                        let unit = HKUnit(from: "lb")
+                        print("Weight of user is:- ",data.quantity.doubleValue(for: unit))
+                        self.userWeight = data.quantity.doubleValue(for: unit)
+                    } else{
+                        let data = result[0] as! HKQuantitySample
+                        let unit = HKUnit(from: "lb")
+                        print("Weight of user is:- ",data.quantity.doubleValue(for: unit))
+                        self.userWeight = data.quantity.doubleValue(for: unit)
+                    }
+                }else{
+                    if let error = error{
+                        print("error",error.localizedDescription)
+                    }
+                }
             }
         }
         
@@ -161,31 +167,9 @@ class RunningVC: UIViewController {
         
         counter += 1
         
-        let hours = counter / 3600
-        var hoursString = String(hours)
-        if hours < 10 {
-            hoursString = "0\(hours)"
-        }
+        let time = commonFunction.timeString(counter: counter)
         
-        let minutes = counter / 60 % 60
-        var minutesString = String(minutes)
-        
-        if minutes < 10 {
-            minutesString = "0\(minutes)"
-        }
-        
-        let seconds = counter % 60
-        var secondsString = String(seconds)
-        if seconds < 10 {
-            secondsString = "0\(seconds)"
-        }
-        
-        if counter > 3600 {
-            timeLbl.text = "\(hoursString):\(minutesString):\(secondsString)"
-        } else{
-            timeLbl.text = "\(minutesString):\(secondsString)"
-        }
-        
+        timeLbl.text = time
     }
     
     @objc func updateTimer(){
@@ -203,7 +187,6 @@ class RunningVC: UIViewController {
         nextVC.runTime = timeLbl.text
         nextVC.runningDistance = runningDistance / 1000
         nextVC.elevation = elevation
-        nextVC.avgPace = avgPace
         nextVC.userWeight = userWeight
         nextVC.counter = counter
         
@@ -212,29 +195,21 @@ class RunningVC: UIViewController {
     
 }
 
-
 extension RunningVC: CLLocationManagerDelegate{
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         locationsArray.append(contentsOf: locations)
         
-        if locationsArray.count > 0 {
-
-            for location in locationsArray{
-
-               
-                runningDistance += location.distance(from: self.locationsArray.last!)
-
-                elevation = locationsArray.last?.altitude
-
-                avgPace = location.distance(from: self.locationsArray.last!)/(location.timestamp.timeIntervalSince(self.locationsArray.last!.timestamp))
-
-            }
+        for location in locationsArray{
+            print(location)
+            runningDistance += location.distance(from: self.locationsArray.last!)
+            distanceLbl.text = String(format: "%.1f", runningDistance / 1000)
+            elevation = locationsArray.last?.altitude
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        checkLocationAuthorization()
+        checkAuthorizations()
     }
     
 }

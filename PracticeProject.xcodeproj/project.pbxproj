@@ -14,6 +14,9 @@
 		F602FE13248CEFFD00E2167E /* GCDExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602FE12248CEFFC00E2167E /* GCDExampleVC.swift */; };
 		F602FE15248D3F5F00E2167E /* WorkItemandGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602FE14248D3F5F00E2167E /* WorkItemandGroupVC.swift */; };
 		F602FE17248E0CF200E2167E /* SemaphoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602FE16248E0CF200E2167E /* SemaphoreVC.swift */; };
+		F65D3A6724C9B8D10032512A /* pinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A6624C9B8D10032512A /* pinkViewController.swift */; };
+		F65D3A6924CAA7870032512A /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A6824CAA7860032512A /* CommonFunctions.swift */; };
+		F65D3A7124CABB420032512A /* HealthKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A7024CABB420032512A /* HealthKitHelper.swift */; };
 		F6AE090824923A35005B47D5 /* PubNubStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6AE090724923A35005B47D5 /* PubNubStory.storyboard */; };
 		F6AE090B24923A7C005B47D5 /* PubNubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AE090A24923A7C005B47D5 /* PubNubVC.swift */; };
 		F6BC00A12490A23800A0DBBC /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BC00A02490A23800A0DBBC /* Activity.storyboard */; };
@@ -55,6 +58,9 @@
 		F602FE12248CEFFC00E2167E /* GCDExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDExampleVC.swift; sourceTree = "<group>"; };
 		F602FE14248D3F5F00E2167E /* WorkItemandGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkItemandGroupVC.swift; sourceTree = "<group>"; };
 		F602FE16248E0CF200E2167E /* SemaphoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemaphoreVC.swift; sourceTree = "<group>"; };
+		F65D3A6624C9B8D10032512A /* pinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pinkViewController.swift; sourceTree = "<group>"; };
+		F65D3A6824CAA7860032512A /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
+		F65D3A7024CABB420032512A /* HealthKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHelper.swift; sourceTree = "<group>"; };
 		F6AE090724923A35005B47D5 /* PubNubStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PubNubStory.storyboard; sourceTree = "<group>"; };
 		F6AE090A24923A7C005B47D5 /* PubNubVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubNubVC.swift; sourceTree = "<group>"; };
 		F6BC00A02490A23800A0DBBC /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
@@ -130,6 +136,55 @@
 				F602FE16248E0CF200E2167E /* SemaphoreVC.swift */,
 			);
 			path = GCD;
+			sourceTree = "<group>";
+		};
+		F65D3A6A24CAAB830032512A /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F6D213A724C30A57001858B2 /* RunningVC.swift */,
+				F6CD3A2624BF2655007535BB /* RunDetailsVC.swift */,
+				F6CD3A2424BF1C5D007535BB /* JetSetRunVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F65D3A6B24CAAC5E0032512A /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F65D3A6C24CAAC650032512A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				F65D3A6F24CAB3A60032512A /* Helper */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		F65D3A6D24CAB2210032512A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				F65D3A6824CAA7860032512A /* CommonFunctions.swift */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		F65D3A6E24CAB2B10032512A /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				F6CD3A1C24BDB87C007535BB /* HandMKit.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		F65D3A6F24CAB3A60032512A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				F65D3A7024CABB420032512A /* HealthKitHelper.swift */,
+			);
+			path = Helper;
 			sourceTree = "<group>";
 		};
 		F6AE090924923A51005B47D5 /* PubNub */ = {
@@ -211,12 +266,14 @@
 		F6CD3A1E24BDB887007535BB /* Health&MotionKit */ = {
 			isa = PBXGroup;
 			children = (
-				F6CD3A1C24BDB87C007535BB /* HandMKit.storyboard */,
-				F6D213A724C30A57001858B2 /* RunningVC.swift */,
-				F6CD3A2624BF2655007535BB /* RunDetailsVC.swift */,
 				F6E27B4424C02937003F0899 /* PageViewController.swift */,
+				F65D3A6624C9B8D10032512A /* pinkViewController.swift */,
 				F6CD3A1F24BDBB99007535BB /* HandMKitViewController.swift */,
-				F6CD3A2424BF1C5D007535BB /* JetSetRunVC.swift */,
+				F65D3A6E24CAB2B10032512A /* Storyboards */,
+				F65D3A6C24CAAC650032512A /* Model */,
+				F65D3A6B24CAAC5E0032512A /* View */,
+				F65D3A6A24CAAB830032512A /* Controller */,
+				F65D3A6D24CAB2210032512A /* Utility */,
 			);
 			path = "Health&MotionKit";
 			sourceTree = "<group>";
@@ -346,6 +403,7 @@
 				F6C552B6248A7E170022CCE5 /* OuterTableCell.swift in Sources */,
 				F602FE11248B9CE600E2167E /* GCDViewController.swift in Sources */,
 				F6D213A824C30A57001858B2 /* RunningVC.swift in Sources */,
+				F65D3A6724C9B8D10032512A /* pinkViewController.swift in Sources */,
 				F602FE13248CEFFD00E2167E /* GCDExampleVC.swift in Sources */,
 				F6ED59402493637000AA57B8 /* ChannelVC.swift in Sources */,
 				F6C552B2248A66520022CCE5 /* SceneDelegate.swift in Sources */,
@@ -364,6 +422,8 @@
 				F6BC00A42490A28500A0DBBC /* ActivityViewController.swift in Sources */,
 				F602FE15248D3F5F00E2167E /* WorkItemandGroupVC.swift in Sources */,
 				F6CD3A2024BDBB99007535BB /* HandMKitViewController.swift in Sources */,
+				F65D3A7124CABB420032512A /* HealthKitHelper.swift in Sources */,
+				F65D3A6924CAA7870032512A /* CommonFunctions.swift in Sources */,
 				F6ED593C24934FA100AA57B8 /* PubNubViewController.swift in Sources */,
 				F6C552B0248A61770022CCE5 /* TableViewVC.swift in Sources */,
 				F6ED59422493650E00AA57B8 /* MessageCell.swift in Sources */,
