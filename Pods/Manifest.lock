@@ -1,11 +1,20 @@
 PODS:
   - Alamofire (5.2.1)
+  - GoogleMaps (3.9.0):
+    - GoogleMaps/Maps (= 3.9.0)
+  - GoogleMaps/Base (3.9.0)
+  - GoogleMaps/Maps (3.9.0):
+    - GoogleMaps/Base
+  - GooglePlaces (3.9.0):
+    - GoogleMaps/Base (= 3.9.0)
   - IQKeyboardManagerSwift (6.5.5)
   - PubNubSwift (2.5.3)
   - SwiftyJSON (5.0.0)
 
 DEPENDENCIES:
   - Alamofire
+  - GoogleMaps
+  - GooglePlaces
   - IQKeyboardManagerSwift
   - PubNubSwift
   - SwiftyJSON
@@ -13,16 +22,20 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - GoogleMaps
+    - GooglePlaces
     - IQKeyboardManagerSwift
     - PubNubSwift
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: e911732990610fe89af59ac0077f923d72dc3dfd
+  GoogleMaps: 4b5346bddfe6911bb89155d43c903020170523ac
+  GooglePlaces: 1634d019549b969d40fe0ccb0b9513055adebe01
   IQKeyboardManagerSwift: 0fb93310284665245591f50f7a5e38de615960b7
   PubNubSwift: a3ae90153b9f7ead6596c927c72f628d6349f191
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
 
-PODFILE CHECKSUM: e6e0695c9e7ce0152d7d3b895a2ffa06399f8551
+PODFILE CHECKSUM: e5d22aebfb722adba47d7e09ea6831d89da12f9e
 
-COCOAPODS: 1.9.1
+COCOAPODS: 1.9.3

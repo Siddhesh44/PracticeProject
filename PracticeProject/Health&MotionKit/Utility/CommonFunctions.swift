@@ -7,8 +7,11 @@
 //
 
 import Foundation
+import UIKit
+import CoreLocation
 
 class CommonFunctions {
+    let locationManager = CLLocationManager()
     
     func timeString(counter: Int) -> String {
         
@@ -36,7 +39,23 @@ class CommonFunctions {
         } else{
             return "\(minutesString):\(secondsString)"
         }
-        
+    }
+    
+    func checkLocationStatus() -> Bool{
+        if CLLocationManager.authorizationStatus() == .authorizedAlways{
+            return true
+        } else if CLLocationManager.authorizationStatus() == .authorizedWhenInUse{
+            return true
+        } else if CLLocationManager.authorizationStatus() == .notDetermined{
+            locationManager.requestWhenInUseAuthorization()
+            return false
+        } else if CLLocationManager.authorizationStatus() == .restricted{
+            return false
+        } else if CLLocationManager.authorizationStatus() == .denied{
+            return false
+        } else {
+            return false
+        }
     }
     
 }

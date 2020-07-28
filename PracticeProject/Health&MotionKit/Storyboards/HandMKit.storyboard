@@ -221,7 +221,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fm4-3B-AaI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1637.68115942029" y="811.60714285714278"/>
+            <point key="canvasLocation" x="-391" y="812"/>
         </scene>
         <!--Page View Controller-->
         <scene sceneID="pdO-gg-lKi">
@@ -231,7 +231,7 @@
                 </pageViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8af-Gv-ICv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2452" y="56"/>
+            <point key="canvasLocation" x="-1145" y="812"/>
         </scene>
         <!--Pink View Controller-->
         <scene sceneID="Gp4-HH-9Ie">
@@ -246,7 +246,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ycy-OH-oz7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3286" y="812"/>
+            <point key="canvasLocation" x="617" y="812"/>
         </scene>
         <!--Run DetailsVC-->
         <scene sceneID="ikn-Mt-q2H">
@@ -256,12 +256,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="ka2-MW-zvE">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="295"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="295" id="CaS-1F-X4u"/>
-                                </constraints>
-                            </mapView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nyD-ZZ-c8Y">
                                 <rect key="frame" x="0.0" y="295" width="414" height="601"/>
                                 <subviews>
@@ -455,16 +449,23 @@
                                     <constraint firstItem="zSI-ur-mVK" firstAttribute="leading" secondItem="nyD-ZZ-c8Y" secondAttribute="leading" constant="20" id="s56-6e-NIc"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="foN-iY-kg6">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="295"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="295" id="BrZ-GO-089"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="nyD-ZZ-c8Y" secondAttribute="bottom" id="64W-gr-QtW"/>
-                            <constraint firstItem="ka2-MW-zvE" firstAttribute="leading" secondItem="Rn2-RT-n3w" secondAttribute="leading" id="8QX-Mv-32C"/>
-                            <constraint firstItem="nyD-ZZ-c8Y" firstAttribute="top" secondItem="ka2-MW-zvE" secondAttribute="bottom" id="Gdd-Gm-d1m"/>
-                            <constraint firstItem="ka2-MW-zvE" firstAttribute="trailing" secondItem="Rn2-RT-n3w" secondAttribute="trailing" id="Ke2-LD-lGq"/>
+                            <constraint firstItem="foN-iY-kg6" firstAttribute="top" secondItem="U41-o8-yAq" secondAttribute="top" id="Id3-y6-bD5"/>
+                            <constraint firstItem="foN-iY-kg6" firstAttribute="trailing" secondItem="Rn2-RT-n3w" secondAttribute="trailing" id="Jf6-Ft-NLx"/>
+                            <constraint firstItem="nyD-ZZ-c8Y" firstAttribute="top" secondItem="foN-iY-kg6" secondAttribute="bottom" id="Wbz-hd-lAm"/>
                             <constraint firstItem="nyD-ZZ-c8Y" firstAttribute="leading" secondItem="Rn2-RT-n3w" secondAttribute="leading" id="bNg-vF-sfs"/>
                             <constraint firstItem="nyD-ZZ-c8Y" firstAttribute="trailing" secondItem="Rn2-RT-n3w" secondAttribute="trailing" id="gQk-mQ-vCb"/>
-                            <constraint firstItem="ka2-MW-zvE" firstAttribute="top" secondItem="U41-o8-yAq" secondAttribute="top" id="qHa-Mr-VJf"/>
+                            <constraint firstItem="foN-iY-kg6" firstAttribute="leading" secondItem="Rn2-RT-n3w" secondAttribute="leading" id="v4O-Gq-FTT"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Rn2-RT-n3w"/>
                     </view>
@@ -474,7 +475,8 @@
                         <outlet property="distanceLbl" destination="JMr-05-wJV" id="pxs-ES-Pd6"/>
                         <outlet property="elevationLbl" destination="2Qy-Rf-ahm" id="AaN-u5-IKy"/>
                         <outlet property="finishBtn" destination="M9B-KI-pyk" id="7Lo-SH-EpC"/>
-                        <outlet property="mapHeight" destination="CaS-1F-X4u" id="fjv-dL-ZQb"/>
+                        <outlet property="mapHeight" destination="BrZ-GO-089" id="FbG-zJ-cJu"/>
+                        <outlet property="mapView" destination="foN-iY-kg6" id="krj-Th-TH0"/>
                         <outlet property="paceLbl" destination="fOe-Nv-JzJ" id="TJq-CY-0I2"/>
                         <outlet property="resumeBtn" destination="EOI-qP-xoS" id="cRC-rU-o5s"/>
                         <outlet property="timeLbl" destination="Fi1-2l-X3l" id="VwN-ht-hpi"/>
@@ -482,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JKu-js-7yG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2450.7246376811595" y="811.60714285714278"/>
+            <point key="canvasLocation" x="2425" y="56"/>
         </scene>
     </scenes>
     <resources>

@@ -10,6 +10,8 @@ import UIKit
 import CoreData
 import PubNub
 import IQKeyboardManagerSwift
+import GoogleMaps
+import GooglePlaces
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,6 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         } else if let rootVC = self.window?.rootViewController as? SimpleChatAppVC {
             rootVC.pubnub = pubnub
         }
+        
+        // GoogleMaps
+        
+        GMSServices.provideAPIKey("AIzaSyCL254X8pGVsZvxNbTkfIs6CIVKEBumXMM")
+        GMSPlacesClient.provideAPIKey("AIzaSyCL254X8pGVsZvxNbTkfIs6CIVKEBumXMM")
         
         return true
     }

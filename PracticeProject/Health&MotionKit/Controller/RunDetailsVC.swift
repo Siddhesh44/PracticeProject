@@ -8,6 +8,12 @@
 
 import UIKit
 import HealthKit
+import CoreLocation
+import GoogleMaps
+import GooglePlaces
+import StoreKit
+import MediaPlayer  
+
 
 class RunDetailsVC: UIViewController {
     
@@ -23,6 +29,9 @@ class RunDetailsVC: UIViewController {
     @IBOutlet weak var elevationLbl: UILabel!
     @IBOutlet weak var bpmLbl: UILabel!
     
+    @IBOutlet weak var mapView: GMSMapView!
+    var googleView = GMSMapView()
+    
     typealias km = Double
     typealias cal = Double
     typealias time = String
@@ -35,18 +44,22 @@ class RunDetailsVC: UIViewController {
     var bpm: Double?
     var userWeight: kg?
     var counter: Int?
+    var locationsArray = [CLLocation]()
     
     @IBOutlet weak var mapHeight: NSLayoutConstraint!
     
-    
     override func viewDidLoad() {
+        super.viewDidLoad()
         
         healthKitHelper.healthKitDelegate = self
         
+        
         let screenHeight = UIScreen.main.bounds.height
-        print(screenHeight,screenHeight/3)
-        mapHeight.constant = screenHeight/3
-        super.viewDidLoad()
+        print("Screen height",screenHeight,screenHeight/3)
+        let constant = screenHeight / 3
+        mapHeight.constant = constant
+        self.view.layoutIfNeeded()
+        
         navigationController?.navigationBar.isHidden = true
         
         finishBtn.circularButton()
@@ -66,6 +79,12 @@ class RunDetailsVC: UIViewController {
                 
             }
         }
+        let camera = GMSCameraPosition.camera(withLatitude: (locationsArray.first?.coordinate.latitude)!, longitude: (locationsArray.first?.coordinate.longitude)!, zoom: 12.0)
+        googleView = GMSMapView.map(withFrame: self.mapView.frame, camera: camera)
+        self.mapView.addSubview(googleView)
+        
+        drawPath()
+        
     }
     
     // MARK: UserDefined Functions
@@ -141,6 +160,21 @@ class RunDetailsVC: UIViewController {
         
     }
     
+    func drawPath(){
+        let path = GMSMutablePath()
+        for location in self.locationsArray{
+            path.add(location.coordinate)
+        }
+        let polyline = GMSPolyline(path: path)
+        polyline.strokeWidth = 2.0
+        polyline.geodesic = true
+        polyline.strokeColor = UIColor.blue
+        polyline.map = self.googleView
+        
+        let bounds = GMSCoordinateBounds(path: path)
+        self.googleView.animate(with: GMSCameraUpdate.fit(bounds))
+    }
+    
     // MARK: Event Actions
     
     @IBAction func resumeRunBtn(_ sender: UIButton) {
@@ -164,10 +198,7 @@ extension RunDetailsVC: HealthKitDelegates{
     }
     
     func getWeight(weight: Double) { }
-    
-    
 }
-
 
 
 

@@ -143,9 +143,9 @@
 		F65D3A6A24CAAB830032512A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				F6CD3A2424BF1C5D007535BB /* JetSetRunVC.swift */,
 				F6D213A724C30A57001858B2 /* RunningVC.swift */,
 				F6CD3A2624BF2655007535BB /* RunDetailsVC.swift */,
-				F6CD3A2424BF1C5D007535BB /* JetSetRunVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -301,6 +301,7 @@
 				F6C5528F248A60E70022CCE5 /* Frameworks */,
 				F6C55290248A60E70022CCE5 /* Resources */,
 				F5A00E64E0EB3A89911CD12D /* [CP] Embed Pods Frameworks */,
+				3EF88C5079DC9B574F4825C8 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -363,6 +364,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		3EF88C5079DC9B574F4825C8 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PracticeProject/Pods-PracticeProject-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-PracticeProject/Pods-PracticeProject-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-PracticeProject/Pods-PracticeProject-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		E04A7D73EAC1B9ABA0D44C36 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;

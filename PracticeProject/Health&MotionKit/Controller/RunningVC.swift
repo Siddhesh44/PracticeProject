@@ -10,6 +10,8 @@ import UIKit
 import HealthKit
 import CoreMotion
 import CoreLocation
+import StoreKit
+import MediaPlayer
 
 class RunningVC: UIViewController {
     
@@ -38,7 +40,6 @@ class RunningVC: UIViewController {
     
     lazy var locationsArray = [CLLocation]()
     
-    var startingLocation:CLLocation?
     var isHasRequriedPermissions = false
     
     @IBOutlet weak var timeLbl: UILabel!
@@ -89,40 +90,6 @@ class RunningVC: UIViewController {
         locationManager.distanceFilter = 10
     }
     
-    func checkLocationServices(){
-        if CLLocationManager.locationServicesEnabled(){
-            setUpLocationManager()
-            checkAuthorizations()
-        } else{
-            print("Check Location Services Unavailable")
-        }
-    }
-    
-    func checkAuthorizations(){
-        
-        switch CLLocationManager.authorizationStatus() {
-        case .notDetermined:
-            print("Authorization notDetermined")
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            print("Authorization Restricted")
-        case .denied:
-            print("Authorization Denied")
-        case .authorizedAlways:
-            print("Authorized Always")
-            setUpLocationManager()
-            locationManager.startUpdatingLocation()
-            locationManager.startUpdatingHeading()
-        case .authorizedWhenInUse:
-            print("authorizedWhenInUse")
-            setUpLocationManager()
-            locationManager.startUpdatingLocation()
-            locationManager.startUpdatingHeading()
-        @unknown default:
-            break
-        }
-    }
-    
     func createTimer() {
         timer = Timer.scheduledTimer(timeInterval: 1,
                                      target: self,
@@ -159,6 +126,7 @@ class RunningVC: UIViewController {
         nextVC.elevation = elevation
         nextVC.userWeight = userWeight
         nextVC.counter = counter
+        nextVC.locationsArray = locationsArray
         
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
@@ -181,7 +149,12 @@ extension RunningVC: CLLocationManagerDelegate{
     }
     
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-        checkAuthorizations()
+        let locationStatus = commonFunction.checkLocationStatus()
+        if locationStatus == true{
+            setUpLocationManager()
+            locationManager.startUpdatingLocation()
+            locationManager.startUpdatingHeading()
+        }
     }
     
 }

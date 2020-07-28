@@ -13,8 +13,10 @@ import CoreLocation
 
 class JetSetRunVC: UIViewController {
     
-    let healthStore = HKHealthStore()
+    let commonFunction = CommonFunctions()
     let healthKitHelper = HealthKitHelper()
+    
+    let healthStore = HKHealthStore()
     let altimeter = CMAltimeter()
     let locationManager = CLLocationManager()
     
@@ -73,22 +75,9 @@ class JetSetRunVC: UIViewController {
             break
         }
         
-        switch CLLocationManager.authorizationStatus() {
-        case .notDetermined:
-            print("Authorization notDetermined")
-            locationManager.requestWhenInUseAuthorization()
-        case .restricted:
-            print("Authorization Restricted")
-        case .denied:
-            print("Authorization Denied")
-        case .authorizedAlways:
-            print("Authorized Always")
+        let locationStatus = commonFunction.checkLocationStatus()
+        if locationStatus == true{
             isHasLocationPermission = true
-        case .authorizedWhenInUse:
-            print("startUpdatingLocation")
-            isHasLocationPermission = true
-        @unknown default:
-            break
         }
     }
     
