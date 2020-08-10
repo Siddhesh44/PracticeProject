@@ -64,6 +64,8 @@ class RunDetailsVC: UIViewController {
         
         finishBtn.circularButton()
         resumeBtn.circularButton()
+        finishBtn.addShadow()
+        resumeBtn.addShadow()
         
         setAvgPace()
         setCalBurn()

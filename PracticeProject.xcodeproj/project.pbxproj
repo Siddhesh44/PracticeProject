@@ -14,16 +14,27 @@
 		F602FE13248CEFFD00E2167E /* GCDExampleVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602FE12248CEFFC00E2167E /* GCDExampleVC.swift */; };
 		F602FE15248D3F5F00E2167E /* WorkItemandGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602FE14248D3F5F00E2167E /* WorkItemandGroupVC.swift */; };
 		F602FE17248E0CF200E2167E /* SemaphoreVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F602FE16248E0CF200E2167E /* SemaphoreVC.swift */; };
+		F62525FE24E16A4D001616F2 /* firebaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62525FD24E16A4D001616F2 /* firebaseVC.swift */; };
+		F625260024E16A6E001616F2 /* listCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F62525FF24E16A6E001616F2 /* listCell.swift */; };
+		F625260224E16B55001616F2 /* UserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = F625260124E16B55001616F2 /* UserList.swift */; };
 		F65D3A6724C9B8D10032512A /* pinkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A6624C9B8D10032512A /* pinkViewController.swift */; };
 		F65D3A6924CAA7870032512A /* CommonFunctions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A6824CAA7860032512A /* CommonFunctions.swift */; };
 		F65D3A7124CABB420032512A /* HealthKitHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A7024CABB420032512A /* HealthKitHelper.swift */; };
-		F65D3A7324CAD7780032512A /* Extension + Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A7224CAD7780032512A /* Extension + Button.swift */; };
+		F65D3A7324CAD7780032512A /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = F65D3A7224CAD7780032512A /* Extensions.swift */; };
 		F6AE090824923A35005B47D5 /* PubNubStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6AE090724923A35005B47D5 /* PubNubStory.storyboard */; };
 		F6AE090B24923A7C005B47D5 /* PubNubVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6AE090A24923A7C005B47D5 /* PubNubVC.swift */; };
+		F6B1E05E24DD6F7D007E1A75 /* FirebaseStory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6B1E05D24DD6F7D007E1A75 /* FirebaseStory.storyboard */; };
+		F6B1E06224DD7122007E1A75 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1E06124DD7122007E1A75 /* LoginVC.swift */; };
+		F6B1E06824DD8DFC007E1A75 /* ThoughtsListTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1E06724DD8DFC007E1A75 /* ThoughtsListTableVC.swift */; };
+		F6B1E06A24DD8FA9007E1A75 /* ThougthsListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1E06924DD8FA9007E1A75 /* ThougthsListCell.swift */; };
+		F6B1E06E24DE922E007E1A75 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F6B1E06D24DE922D007E1A75 /* GoogleService-Info.plist */; };
+		F6B1E07024DEE581007E1A75 /* UserItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B1E06F24DEE581007E1A75 /* UserItem.swift */; };
 		F6BC00A12490A23800A0DBBC /* Activity.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6BC00A02490A23800A0DBBC /* Activity.storyboard */; };
 		F6BC00A42490A28500A0DBBC /* ActivityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BC00A32490A28500A0DBBC /* ActivityViewController.swift */; };
 		F6BC00A62490E5F900A0DBBC /* customActivityController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BC00A52490E5F900A0DBBC /* customActivityController.swift */; };
 		F6BC00AA2491030200A0DBBC /* ActivityViewCustomActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BC00A92491030200A0DBBC /* ActivityViewCustomActivity.swift */; };
+		F6BDC3C124D92D2200D8058F /* RunStart.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BDC3C024D92D2200D8058F /* RunStart.swift */; };
+		F6BDC3C324D96A1800D8058F /* GraphicsAndAnimations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6BDC3C224D96A1800D8058F /* GraphicsAndAnimations.swift */; };
 		F6C55296248A60E70022CCE5 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C55295248A60E70022CCE5 /* AppDelegate.swift */; };
 		F6C5529A248A60E70022CCE5 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C55299248A60E70022CCE5 /* ViewController.swift */; };
 		F6C5529D248A60E70022CCE5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6C5529B248A60E70022CCE5 /* Main.storyboard */; };
@@ -36,12 +47,14 @@
 		F6C552B4248A7A680022CCE5 /* TableInCellVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C552B3248A7A680022CCE5 /* TableInCellVC.swift */; };
 		F6C552B6248A7E170022CCE5 /* OuterTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C552B5248A7E170022CCE5 /* OuterTableCell.swift */; };
 		F6C552B8248A7E270022CCE5 /* InnerTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C552B7248A7E270022CCE5 /* InnerTableCell.swift */; };
+		F6C8ECE224DA7C35001B38F0 /* AnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6C8ECE124DA7C35001B38F0 /* AnimationVC.swift */; };
 		F6CD3A1D24BDB87C007535BB /* HandMKit.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6CD3A1C24BDB87C007535BB /* HandMKit.storyboard */; };
 		F6CD3A2024BDBB99007535BB /* HandMKitViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CD3A1F24BDBB99007535BB /* HandMKitViewController.swift */; };
 		F6CD3A2324BDC153007535BB /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6CD3A2224BDC153007535BB /* HealthKit.framework */; };
 		F6CD3A2524BF1C5D007535BB /* JetSetRunVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CD3A2424BF1C5D007535BB /* JetSetRunVC.swift */; };
 		F6CD3A2724BF2655007535BB /* RunDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CD3A2624BF2655007535BB /* RunDetailsVC.swift */; };
 		F6D213A824C30A57001858B2 /* RunningVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D213A724C30A57001858B2 /* RunningVC.swift */; };
+		F6E0A63C24E0605500088981 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E0A63B24E0605500088981 /* User.swift */; };
 		F6E27B4524C02937003F0899 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6E27B4424C02937003F0899 /* PageViewController.swift */; };
 		F6ED593C24934FA100AA57B8 /* PubNubViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED593B24934FA100AA57B8 /* PubNubViewController.swift */; };
 		F6ED593E2493618400AA57B8 /* SimpleChatAppVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6ED593D2493618400AA57B8 /* SimpleChatAppVC.swift */; };
@@ -59,16 +72,27 @@
 		F602FE12248CEFFC00E2167E /* GCDExampleVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GCDExampleVC.swift; sourceTree = "<group>"; };
 		F602FE14248D3F5F00E2167E /* WorkItemandGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkItemandGroupVC.swift; sourceTree = "<group>"; };
 		F602FE16248E0CF200E2167E /* SemaphoreVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SemaphoreVC.swift; sourceTree = "<group>"; };
+		F62525FD24E16A4D001616F2 /* firebaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = firebaseVC.swift; sourceTree = "<group>"; };
+		F62525FF24E16A6E001616F2 /* listCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = listCell.swift; sourceTree = "<group>"; };
+		F625260124E16B55001616F2 /* UserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserList.swift; sourceTree = "<group>"; };
 		F65D3A6624C9B8D10032512A /* pinkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pinkViewController.swift; sourceTree = "<group>"; };
 		F65D3A6824CAA7860032512A /* CommonFunctions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonFunctions.swift; sourceTree = "<group>"; };
 		F65D3A7024CABB420032512A /* HealthKitHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitHelper.swift; sourceTree = "<group>"; };
-		F65D3A7224CAD7780032512A /* Extension + Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension + Button.swift"; sourceTree = "<group>"; };
+		F65D3A7224CAD7780032512A /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		F6AE090724923A35005B47D5 /* PubNubStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = PubNubStory.storyboard; sourceTree = "<group>"; };
 		F6AE090A24923A7C005B47D5 /* PubNubVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubNubVC.swift; sourceTree = "<group>"; };
+		F6B1E05D24DD6F7D007E1A75 /* FirebaseStory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FirebaseStory.storyboard; sourceTree = "<group>"; };
+		F6B1E06124DD7122007E1A75 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		F6B1E06724DD8DFC007E1A75 /* ThoughtsListTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThoughtsListTableVC.swift; sourceTree = "<group>"; };
+		F6B1E06924DD8FA9007E1A75 /* ThougthsListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThougthsListCell.swift; sourceTree = "<group>"; };
+		F6B1E06D24DE922D007E1A75 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		F6B1E06F24DEE581007E1A75 /* UserItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserItem.swift; sourceTree = "<group>"; };
 		F6BC00A02490A23800A0DBBC /* Activity.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Activity.storyboard; sourceTree = "<group>"; };
 		F6BC00A32490A28500A0DBBC /* ActivityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewController.swift; sourceTree = "<group>"; };
 		F6BC00A52490E5F900A0DBBC /* customActivityController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customActivityController.swift; sourceTree = "<group>"; };
 		F6BC00A92491030200A0DBBC /* ActivityViewCustomActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityViewCustomActivity.swift; sourceTree = "<group>"; };
+		F6BDC3C024D92D2200D8058F /* RunStart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunStart.swift; sourceTree = "<group>"; };
+		F6BDC3C224D96A1800D8058F /* GraphicsAndAnimations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GraphicsAndAnimations.swift; sourceTree = "<group>"; };
 		F6C55292248A60E70022CCE5 /* PracticeProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PracticeProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6C55295248A60E70022CCE5 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6C55299248A60E70022CCE5 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +107,7 @@
 		F6C552B3248A7A680022CCE5 /* TableInCellVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableInCellVC.swift; sourceTree = "<group>"; };
 		F6C552B5248A7E170022CCE5 /* OuterTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OuterTableCell.swift; sourceTree = "<group>"; };
 		F6C552B7248A7E270022CCE5 /* InnerTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InnerTableCell.swift; sourceTree = "<group>"; };
+		F6C8ECE124DA7C35001B38F0 /* AnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVC.swift; sourceTree = "<group>"; };
 		F6CD3A1C24BDB87C007535BB /* HandMKit.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = HandMKit.storyboard; sourceTree = "<group>"; };
 		F6CD3A1F24BDBB99007535BB /* HandMKitViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandMKitViewController.swift; sourceTree = "<group>"; };
 		F6CD3A2124BDC152007535BB /* PracticeProject.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PracticeProject.entitlements; sourceTree = "<group>"; };
@@ -90,6 +115,7 @@
 		F6CD3A2424BF1C5D007535BB /* JetSetRunVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JetSetRunVC.swift; sourceTree = "<group>"; };
 		F6CD3A2624BF2655007535BB /* RunDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunDetailsVC.swift; sourceTree = "<group>"; };
 		F6D213A724C30A57001858B2 /* RunningVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RunningVC.swift; sourceTree = "<group>"; };
+		F6E0A63B24E0605500088981 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		F6E27B4424C02937003F0899 /* PageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageViewController.swift; sourceTree = "<group>"; };
 		F6ED593B24934FA100AA57B8 /* PubNubViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PubNubViewController.swift; sourceTree = "<group>"; };
 		F6ED593D2493618400AA57B8 /* SimpleChatAppVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleChatAppVC.swift; sourceTree = "<group>"; };
@@ -140,6 +166,18 @@
 			path = GCD;
 			sourceTree = "<group>";
 		};
+		F62525FC24E1685F001616F2 /* Penny For Thoughts */ = {
+			isa = PBXGroup;
+			children = (
+				F6B1E06124DD7122007E1A75 /* LoginVC.swift */,
+				F6B1E06724DD8DFC007E1A75 /* ThoughtsListTableVC.swift */,
+				F6B1E06924DD8FA9007E1A75 /* ThougthsListCell.swift */,
+				F6B1E06F24DEE581007E1A75 /* UserItem.swift */,
+				F6E0A63B24E0605500088981 /* User.swift */,
+			);
+			path = "Penny For Thoughts";
+			sourceTree = "<group>";
+		};
 		F65D3A6A24CAAB830032512A /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +207,7 @@
 			isa = PBXGroup;
 			children = (
 				F65D3A6824CAA7860032512A /* CommonFunctions.swift */,
+				F6C8ECE124DA7C35001B38F0 /* AnimationVC.swift */,
 				F65D3A7424CAD77C0032512A /* Extensions */,
 			);
 			path = Utility;
@@ -193,7 +232,7 @@
 		F65D3A7424CAD77C0032512A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				F65D3A7224CAD7780032512A /* Extension + Button.swift */,
+				F65D3A7224CAD7780032512A /* Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,6 +248,18 @@
 				F6AE090A24923A7C005B47D5 /* PubNubVC.swift */,
 			);
 			path = PubNub;
+			sourceTree = "<group>";
+		};
+		F6B1E05C24DD6F32007E1A75 /* FireBase */ = {
+			isa = PBXGroup;
+			children = (
+				F6B1E05D24DD6F7D007E1A75 /* FirebaseStory.storyboard */,
+				F62525FC24E1685F001616F2 /* Penny For Thoughts */,
+				F62525FD24E16A4D001616F2 /* firebaseVC.swift */,
+				F62525FF24E16A6E001616F2 /* listCell.swift */,
+				F625260124E16B55001616F2 /* UserList.swift */,
+			);
+			path = FireBase;
 			sourceTree = "<group>";
 		};
 		F6BC00A22490A23E00A0DBBC /* Activity */ = {
@@ -251,12 +302,14 @@
 				F6C552A1248A60EE0022CCE5 /* Assets.xcassets */,
 				F6C552A3248A60EE0022CCE5 /* LaunchScreen.storyboard */,
 				F6C552A6248A60EE0022CCE5 /* Info.plist */,
+				F6B1E06D24DE922D007E1A75 /* GoogleService-Info.plist */,
 				F6C5529E248A60E70022CCE5 /* PracticeProject.xcdatamodeld */,
 				F6AE090924923A51005B47D5 /* PubNub */,
 				F6C552AE248A615A0022CCE5 /* TableView */,
 				F602FE0F248B9CC300E2167E /* GCD */,
 				F6BC00A22490A23E00A0DBBC /* Activity */,
 				F6CD3A1E24BDB887007535BB /* Health&MotionKit */,
+				F6B1E05C24DD6F32007E1A75 /* FireBase */,
 			);
 			path = PracticeProject;
 			sourceTree = "<group>";
@@ -280,6 +333,8 @@
 				F6E27B4424C02937003F0899 /* PageViewController.swift */,
 				F65D3A6624C9B8D10032512A /* pinkViewController.swift */,
 				F6CD3A1F24BDBB99007535BB /* HandMKitViewController.swift */,
+				F6BDC3C224D96A1800D8058F /* GraphicsAndAnimations.swift */,
+				F6BDC3C024D92D2200D8058F /* RunStart.swift */,
 				F65D3A6E24CAB2B10032512A /* Storyboards */,
 				F65D3A6C24CAAC650032512A /* Model */,
 				F65D3A6B24CAAC5E0032512A /* View */,
@@ -357,7 +412,9 @@
 				F6AE090824923A35005B47D5 /* PubNubStory.storyboard in Resources */,
 				F6C552A2248A60EE0022CCE5 /* Assets.xcassets in Resources */,
 				F6C552AD248A611D0022CCE5 /* TableView.storyboard in Resources */,
+				F6B1E06E24DE922E007E1A75 /* GoogleService-Info.plist in Resources */,
 				F6C5529D248A60E70022CCE5 /* Main.storyboard in Resources */,
+				F6B1E05E24DD6F7D007E1A75 /* FirebaseStory.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,18 +486,26 @@
 			files = (
 				F6BC00A62490E5F900A0DBBC /* customActivityController.swift in Sources */,
 				F6CD3A2724BF2655007535BB /* RunDetailsVC.swift in Sources */,
+				F625260224E16B55001616F2 /* UserList.swift in Sources */,
 				F6C552B6248A7E170022CCE5 /* OuterTableCell.swift in Sources */,
 				F602FE11248B9CE600E2167E /* GCDViewController.swift in Sources */,
 				F6D213A824C30A57001858B2 /* RunningVC.swift in Sources */,
 				F65D3A6724C9B8D10032512A /* pinkViewController.swift in Sources */,
 				F602FE13248CEFFD00E2167E /* GCDExampleVC.swift in Sources */,
+				F6B1E07024DEE581007E1A75 /* UserItem.swift in Sources */,
+				F6B1E06224DD7122007E1A75 /* LoginVC.swift in Sources */,
 				F6ED59402493637000AA57B8 /* ChannelVC.swift in Sources */,
 				F6C552B2248A66520022CCE5 /* SceneDelegate.swift in Sources */,
 				F6AE090B24923A7C005B47D5 /* PubNubVC.swift in Sources */,
 				F6C5529A248A60E70022CCE5 /* ViewController.swift in Sources */,
-				F65D3A7324CAD7780032512A /* Extension + Button.swift in Sources */,
+				F625260024E16A6E001616F2 /* listCell.swift in Sources */,
+				F65D3A7324CAD7780032512A /* Extensions.swift in Sources */,
 				F6BC00AA2491030200A0DBBC /* ActivityViewCustomActivity.swift in Sources */,
+				F62525FE24E16A4D001616F2 /* firebaseVC.swift in Sources */,
+				F6BDC3C324D96A1800D8058F /* GraphicsAndAnimations.swift in Sources */,
 				F602FE0C248B674B00E2167E /* TableData.swift in Sources */,
+				F6C8ECE224DA7C35001B38F0 /* AnimationVC.swift in Sources */,
+				F6E0A63C24E0605500088981 /* User.swift in Sources */,
 				F6E27B4524C02937003F0899 /* PageViewController.swift in Sources */,
 				F6C552B8248A7E270022CCE5 /* InnerTableCell.swift in Sources */,
 				F6C55296248A60E70022CCE5 /* AppDelegate.swift in Sources */,
@@ -448,15 +513,18 @@
 				F6ED593E2493618400AA57B8 /* SimpleChatAppVC.swift in Sources */,
 				F6C552A0248A60E70022CCE5 /* PracticeProject.xcdatamodeld in Sources */,
 				F602FE17248E0CF200E2167E /* SemaphoreVC.swift in Sources */,
+				F6B1E06824DD8DFC007E1A75 /* ThoughtsListTableVC.swift in Sources */,
 				F6C552B4248A7A680022CCE5 /* TableInCellVC.swift in Sources */,
 				F6BC00A42490A28500A0DBBC /* ActivityViewController.swift in Sources */,
 				F602FE15248D3F5F00E2167E /* WorkItemandGroupVC.swift in Sources */,
+				F6BDC3C124D92D2200D8058F /* RunStart.swift in Sources */,
 				F6CD3A2024BDBB99007535BB /* HandMKitViewController.swift in Sources */,
 				F65D3A7124CABB420032512A /* HealthKitHelper.swift in Sources */,
 				F65D3A6924CAA7870032512A /* CommonFunctions.swift in Sources */,
 				F6ED593C24934FA100AA57B8 /* PubNubViewController.swift in Sources */,
 				F6C552B0248A61770022CCE5 /* TableViewVC.swift in Sources */,
 				F6ED59422493650E00AA57B8 /* MessageCell.swift in Sources */,
+				F6B1E06A24DD8FA9007E1A75 /* ThougthsListCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

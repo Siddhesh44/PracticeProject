@@ -12,6 +12,7 @@ import CoreMotion
 import CoreLocation
 import StoreKit
 import MediaPlayer
+import CoreGraphics
 
 class RunningVC: UIViewController {
     
@@ -49,25 +50,64 @@ class RunningVC: UIViewController {
     @IBOutlet weak var distanceLbl: UILabel!
     
     
+    @IBOutlet var animatedView: UIView!
+    @IBOutlet weak var animatingView: AnimationVC!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.isHidden = true
+        animatedView.frame = UIScreen.main.bounds
+        self.view.addSubview(animatedView)
         
-        stopRunBtn.circularButton()
+        Timer.scheduledTimer(timeInterval:0.5, target: self, selector: #selector(RunningVC.firstTimeOut), userInfo: nil, repeats: false)
         
-        healthKitHelper.healthKitDelegate = self
+        Timer.scheduledTimer(timeInterval:5, target: self, selector: #selector(RunningVC.secondTimeOut), userInfo: nil, repeats: false)
+    }
+    @objc func firstTimeOut(){
+        UIView.animate(withDuration: 1, animations: {
+            self.animatingView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            self.animatingView.drawText(textToDraw: .text1)
+            self.animatingView.transform = CGAffineTransform(scaleX: -2, y: -1)
+        }) { (true) in
+            self.secondAnimation()
+        }
+    }
+    @objc func secondTimeOut(){
         
-        if isHasRequriedPermissions{
+        self.animatedView.removeFromSuperview()
+        self.navigationController?.navigationBar.isHidden = true
+        
+        self.stopRunBtn.circularButton()
+        self.stopRunBtn.addShadow()
+        
+        self.healthKitHelper.healthKitDelegate = self
+        
+        if self.isHasRequriedPermissions{
             print("Got All Permissions")
-            healthKitHelper.getWeigntDataFromHealthApp()
-            altimeterSetUp()
-            setUpLocationManager()
-            locationManager.startUpdatingLocation()
-            locationManager.startUpdatingHeading()
-            createTimer()
+            self.healthKitHelper.getWeigntDataFromHealthApp()
+            self.altimeterSetUp()
+            self.setUpLocationManager()
+            self.locationManager.startUpdatingLocation()
+            self.locationManager.startUpdatingHeading()
+            self.createTimer()
         }
     }
     
+    func secondAnimation(){
+        UIView.animate(withDuration: 1, animations: {
+            self.animatingView.transform = CGAffineTransform(scaleX: -2, y: -1)
+            self.animatingView.drawText(textToDraw: .text2)
+            self.animatingView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        }) { (true) in
+            self.thirdAnimation()
+        }
+    }
+    func thirdAnimation(){
+        UIView.animate(withDuration: 1.5, animations: {
+            self.animatingView.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
+            self.animatingView.drawText(textToDraw: .text3)
+            self.animatingView.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+        })
+    }
     func altimeterSetUp(){
         altimeter.startRelativeAltitudeUpdates(to: .main) { (data, error) in
             if error != nil {
@@ -87,7 +127,7 @@ class RunningVC: UIViewController {
         locationManager.delegate = self
         locationManager.desiredAccuracy =  kCLLocationAccuracyBest
         locationManager.activityType = .fitness
-        locationManager.distanceFilter = 10
+        locationManager.distanceFilter = 5
     }
     
     func createTimer() {

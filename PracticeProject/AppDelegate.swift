@@ -12,6 +12,7 @@ import PubNub
 import IQKeyboardManagerSwift
 import GoogleMaps
 import GooglePlaces
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -24,6 +25,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         IQKeyboardManager.shared.enableAutoToolbar = false
         
+        
+        // FireBase
+        FirebaseApp.configure()
+        
+        // pubnub
         PubNub.log.levels = [.all]
         PubNub.log.writers = [ConsoleLogWriter(),FileLogWriter()]
         

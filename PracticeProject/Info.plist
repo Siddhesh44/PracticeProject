@@ -16,10 +16,16 @@
 	<string>$(PRODUCT_BUNDLE_PACKAGE_TYPE)</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict/>
+	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Need Permission</string>
 	<key>NSHealthClinicalHealthRecordsShareUsageDescription</key>
 	<string>Need Permission</string>
 	<key>NSHealthShareUsageDescription</key>
@@ -32,10 +38,6 @@
 	<string>Need Permission</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>Save Photo</string>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>Need Permission</string>
-	<key>kTCCServiceMediaLibrary</key>
-	<string>Need Permission</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
@@ -80,5 +82,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>kTCCServiceMediaLibrary</key>
+	<string>Need Permission</string>
 </dict>
 </plist>

@@ -21,6 +21,8 @@ class JetSetRunVC: UIViewController {
     let locationManager = CLLocationManager()
     
     @IBOutlet weak var startBtn: UIButton!
+    @IBOutlet weak var gradientLabelView: UIView!
+    @IBOutlet weak var nameLabel: UILabel!
     
     var isHasHealthStorePermission = false
     var isHasLocationPermission = false
@@ -30,8 +32,23 @@ class JetSetRunVC: UIViewController {
         super.viewDidLoad()
         navigationController?.navigationBar.isHidden = true
         
-        startBtn.circularButton()
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.black.cgColor,
+                           UIColor.blue.cgColor,
+                           UIColor.red.cgColor,
+        ]
+        gradient.locations = [0.2,0.5,0.9]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        gradient.frame = gradientLabelView.bounds
         
+        gradientLabelView.layer.addSublayer(gradient)
+        
+        gradientLabelView.mask = nameLabel
+        
+        startBtn.circularButton()
+        startBtn.addShadow()
+
         healthKitHelper.healthKitDelegate = self
         
         checkAuthorizations()
@@ -86,13 +103,14 @@ class JetSetRunVC: UIViewController {
         print("Start Run")
         let storyBoard : UIStoryboard = UIStoryboard(name: "HandMKit", bundle: nil)
         let nextVC = storyBoard.instantiateViewController(withIdentifier: "RunningVC") as! RunningVC
-        if isHasLocationPermission && isHasHealthStorePermission{
-            isHasRequriedPermissions = true
+        if self.isHasLocationPermission && self.isHasHealthStorePermission{
+            self.isHasRequriedPermissions = true
         }
-        nextVC.isHasRequriedPermissions = isHasRequriedPermissions
+        nextVC.isHasRequriedPermissions = self.isHasRequriedPermissions
         self.navigationController?.pushViewController(nextVC, animated: true)
     }
 }
+
 
 // MARK: Extensions
 

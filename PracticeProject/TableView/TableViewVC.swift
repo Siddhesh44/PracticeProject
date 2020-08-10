@@ -48,7 +48,7 @@ extension TableViewVC: UITableViewDelegate,UITableViewDataSource{
         return "Footer"
     }
     
-    func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayHeaderView view: AnimationVC, forSection section: Int) {
         view.tintColor = UIColor.red
         let header = view as! UITableViewHeaderFooterView
         header.textLabel?.textColor = UIColor.white
@@ -61,7 +61,7 @@ extension TableViewVC: UITableViewDelegate,UITableViewDataSource{
         return 40
     }
     
-    func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
+    func tableView(_ tableView: UITableView, willDisplayFooterView view: AnimationVC, forSection section: Int) {
         view.tintColor = UIColor.blue
         let footer = view as! UITableViewHeaderFooterView
         footer.textLabel?.textColor = UIColor.white

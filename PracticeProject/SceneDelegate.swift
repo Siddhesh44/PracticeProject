@@ -26,9 +26,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //        let initialViewController = storyboard.instantiateViewController(withIdentifier: "PubNubVC") as! PubNubVC
         //        self.window?.rootViewController = initialViewController
         
-        
-        let storyboard = UIStoryboard(name: "HandMKit", bundle: nil)
-        let initialViewController = storyboard.instantiateViewController(withIdentifier: "JetSetRunVC") as! JetSetRunVC
+        // HandMKit JetSetRunVC
+        //
+        let storyboard = UIStoryboard(name: "FirebaseStory", bundle: nil)
+        let initialViewController = storyboard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
         let navigationController = UINavigationController(rootViewController: initialViewController)
         self.window?.rootViewController = navigationController
         
